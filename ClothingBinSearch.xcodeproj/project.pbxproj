@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		501138EFD24F8D9A231932B3 /* Pods_ClothingBinSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */; };
+		63BB09C82AC0637D002CCE4E /* ClothingBinSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09C72AC0637D002CCE4E /* ClothingBinSearchApp.swift */; };
+		63BB09CA2AC0637D002CCE4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09C92AC0637D002CCE4E /* ContentView.swift */; };
+		63BB09CC2AC0637E002CCE4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09CB2AC0637E002CCE4E /* Assets.xcassets */; };
+		63BB09CF2AC0637E002CCE4E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09CE2AC0637E002CCE4E /* Preview Assets.xcassets */; };
+		63BB09DB2AC0695F002CCE4E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09DA2AC0695F002CCE4E /* .gitignore */; };
+		63BB09DE2AC06E43002CCE4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09DD2AC06E43002CCE4E /* Coordinator.swift */; };
+		63BB09E02AC077D4002CCE4E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09DF2AC077D4002CCE4E /* MapView.swift */; };
+		63BB09E22AC077E7002CCE4E /* NaverMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09E12AC077E7002CCE4E /* NaverMap.swift */; };
+		63BB09E42AC0787B002CCE4E /* ClothingBin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09E32AC0787B002CCE4E /* ClothingBin.swift */; };
+		63BB09E62AC07B18002CCE4E /* ClothingBInStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09E52AC07B18002CCE4E /* ClothingBInStore.swift */; };
+		63BB09E82AC07FFB002CCE4E /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09E72AC07FFB002CCE4E /* ButtonType.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0904CC62F02D7C08451E30CA /* Pods-ClothingBinSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingBinSearch.debug.xcconfig"; path = "Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		63BB09C42AC0637D002CCE4E /* ClothingBinSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothingBinSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63BB09C72AC0637D002CCE4E /* ClothingBinSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingBinSearchApp.swift; sourceTree = "<group>"; };
+		63BB09C92AC0637D002CCE4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		63BB09CB2AC0637E002CCE4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		63BB09CE2AC0637E002CCE4E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		63BB09DA2AC0695F002CCE4E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		63BB09DC2AC06B08002CCE4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		63BB09DD2AC06E43002CCE4E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		63BB09DF2AC077D4002CCE4E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		63BB09E12AC077E7002CCE4E /* NaverMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMap.swift; sourceTree = "<group>"; };
+		63BB09E32AC0787B002CCE4E /* ClothingBin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingBin.swift; sourceTree = "<group>"; };
+		63BB09E52AC07B18002CCE4E /* ClothingBInStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingBInStore.swift; sourceTree = "<group>"; };
+		63BB09E72AC07FFB002CCE4E /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
+		691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingBinSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A556AF0F0A581BD5ACF95B0 /* Pods-ClothingBinSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingBinSearch.release.xcconfig"; path = "Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63BB09C12AC0637D002CCE4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				501138EFD24F8D9A231932B3 /* Pods_ClothingBinSearch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63BB09BB2AC0637D002CCE4E = {
+			isa = PBXGroup;
+			children = (
+				63BB09DA2AC0695F002CCE4E /* .gitignore */,
+				63BB09C72AC0637D002CCE4E /* ClothingBinSearchApp.swift */,
+				63BB09C62AC0637D002CCE4E /* ClothingBinSearch */,
+				63BB09C52AC0637D002CCE4E /* Products */,
+				F7651336B94794D8A0F8A916 /* Pods */,
+				7909AD6E54B1FCE694BAA99F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		63BB09C52AC0637D002CCE4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63BB09C42AC0637D002CCE4E /* ClothingBinSearch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63BB09C62AC0637D002CCE4E /* ClothingBinSearch */ = {
+			isa = PBXGroup;
+			children = (
+				63BB09DC2AC06B08002CCE4E /* Info.plist */,
+				63BB09D92AC063AE002CCE4E /* Coordinator */,
+				63BB09D82AC0639F002CCE4E /* Data */,
+				63BB09D72AC06394002CCE4E /* Model */,
+				63BB09D62AC0638E002CCE4E /* ViewModel */,
+				63BB09D52AC06389002CCE4E /* View */,
+				63BB09C92AC0637D002CCE4E /* ContentView.swift */,
+				63BB09CB2AC0637E002CCE4E /* Assets.xcassets */,
+				63BB09CD2AC0637E002CCE4E /* Preview Content */,
+			);
+			path = ClothingBinSearch;
+			sourceTree = "<group>";
+		};
+		63BB09CD2AC0637E002CCE4E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				63BB09CE2AC0637E002CCE4E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		63BB09D52AC06389002CCE4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63BB09DF2AC077D4002CCE4E /* MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		63BB09D62AC0638E002CCE4E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63BB09E52AC07B18002CCE4E /* ClothingBInStore.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		63BB09D72AC06394002CCE4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63BB09D82AC0639F002CCE4E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				63BB09E32AC0787B002CCE4E /* ClothingBin.swift */,
+				63BB09E72AC07FFB002CCE4E /* ButtonType.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		63BB09D92AC063AE002CCE4E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				63BB09DD2AC06E43002CCE4E /* Coordinator.swift */,
+				63BB09E12AC077E7002CCE4E /* NaverMap.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7909AD6E54B1FCE694BAA99F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7651336B94794D8A0F8A916 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0904CC62F02D7C08451E30CA /* Pods-ClothingBinSearch.debug.xcconfig */,
+				6A556AF0F0A581BD5ACF95B0 /* Pods-ClothingBinSearch.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63BB09C32AC0637D002CCE4E /* ClothingBinSearch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63BB09D22AC0637E002CCE4E /* Build configuration list for PBXNativeTarget "ClothingBinSearch" */;
+			buildPhases = (
+				7BC98C2079895ED53BC14D48 /* [CP] Check Pods Manifest.lock */,
+				63BB09C02AC0637D002CCE4E /* Sources */,
+				63BB09C12AC0637D002CCE4E /* Frameworks */,
+				63BB09C22AC0637D002CCE4E /* Resources */,
+				9443AF4A8E50FE6CCFFE2C98 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClothingBinSearch;
+			productName = ClothingBinSearch;
+			productReference = 63BB09C42AC0637D002CCE4E /* ClothingBinSearch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63BB09BC2AC0637D002CCE4E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					63BB09C32AC0637D002CCE4E = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 63BB09BF2AC0637D002CCE4E /* Build configuration list for PBXProject "ClothingBinSearch" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 63BB09BB2AC0637D002CCE4E;
+			productRefGroup = 63BB09C52AC0637D002CCE4E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63BB09C32AC0637D002CCE4E /* ClothingBinSearch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63BB09C22AC0637D002CCE4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63BB09CF2AC0637E002CCE4E /* Preview Assets.xcassets in Resources */,
+				63BB09DB2AC0695F002CCE4E /* .gitignore in Resources */,
+				63BB09CC2AC0637E002CCE4E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BC98C2079895ED53BC14D48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClothingBinSearch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9443AF4A8E50FE6CCFFE2C98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63BB09C02AC0637D002CCE4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63BB09E62AC07B18002CCE4E /* ClothingBInStore.swift in Sources */,
+				63BB09E82AC07FFB002CCE4E /* ButtonType.swift in Sources */,
+				63BB09CA2AC0637D002CCE4E /* ContentView.swift in Sources */,
+				63BB09E42AC0787B002CCE4E /* ClothingBin.swift in Sources */,
+				63BB09E22AC077E7002CCE4E /* NaverMap.swift in Sources */,
+				63BB09E02AC077D4002CCE4E /* MapView.swift in Sources */,
+				63BB09C82AC0637D002CCE4E /* ClothingBinSearchApp.swift in Sources */,
+				63BB09DE2AC06E43002CCE4E /* Coordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		63BB09D02AC0637E002CCE4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		63BB09D12AC0637E002CCE4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63BB09D32AC0637E002CCE4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0904CC62F02D7C08451E30CA /* Pods-ClothingBinSearch.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ClothingBinSearch/Preview Content\"";
+				DEVELOPMENT_TEAM = QGS57V8K4N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClothingBinSearch/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sum.ClothingBinSearch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63BB09D42AC0637E002CCE4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A556AF0F0A581BD5ACF95B0 /* Pods-ClothingBinSearch.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ClothingBinSearch/Preview Content\"";
+				DEVELOPMENT_TEAM = QGS57V8K4N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClothingBinSearch/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sum.ClothingBinSearch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63BB09BF2AC0637D002CCE4E /* Build configuration list for PBXProject "ClothingBinSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63BB09D02AC0637E002CCE4E /* Debug */,
+				63BB09D12AC0637E002CCE4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63BB09D22AC0637E002CCE4E /* Build configuration list for PBXNativeTarget "ClothingBinSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63BB09D32AC0637E002CCE4E /* Debug */,
+				63BB09D42AC0637E002CCE4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63BB09BC2AC0637D002CCE4E /* Project object */;
+}
