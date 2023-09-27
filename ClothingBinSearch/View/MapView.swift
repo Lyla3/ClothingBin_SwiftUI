@@ -11,17 +11,29 @@ import NMapsMap
 struct MapView: View {
     //
 
-    @ObservedObject var clothingBinStore: ClothingBinStore = ClothingBinStore()
+//    @ObservedObject var clothingBinStore: ClothingBinStore = ClothingBinStore()
 
-    @State private var coord: NMGLatLng = NMGLatLng(lat: 36.444, lng: 127.332)
+    //@State private var coord: NMGLatLng = NMGLatLng(lat: 36.444, lng: 127.332)
     var body: some View {
-        ZStack {
+        ZStack(alignment:.topTrailing) {
             NaverMap().ignoresSafeArea()
-            Button(action: {
-                clothingBinStore.handleButtonTap(buttonType: .currentLocation)
-                        }) {
-                            Text("현재위치버튼")
-                        }
+//            Button(action: {
+//                Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
+////                clothingBinStore.handleButtonTap(buttonType: .currentLocation)
+//                        }) {
+//                            Text("현재위치버튼")
+//                        }
+            Button {
+                Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
+            } label: {
+                Text("현재위치버튼")
+                    .background(
+                        Rectangle()
+                            .fill(.white)
+                    )
+                    .padding()
+            }
+
         }
         .zIndex(1)
         .onAppear{
