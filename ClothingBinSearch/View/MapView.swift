@@ -26,7 +26,7 @@ struct MapView: View {
             Button {
                 Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
             } label: {
-                Text("현재위치버튼")
+                Text("현재위치")
                     .background(
                         Rectangle()
                             .fill(.white)
