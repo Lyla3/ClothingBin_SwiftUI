@@ -12,7 +12,6 @@ import NMapsMap
 class ClothingBinStore: ObservableObject{
     @Published var clothingBinArray:[ClothingBin] = []
     @Published var currentButtonType: ButtonType = .none
-    
 
     var clothingBinLocationArrayString : [[String]] = []      // String타입의 의류수거함 배열
     
@@ -83,11 +82,23 @@ class ClothingBinStore: ObservableObject{
     }
     
     func loadMarkersOnScreen() {
+        clearBinArray()
         // 현재 화면에 보이는 마커들을 로드하는 로직 작성...
         
         print("현재 화면의 마커들 로드")
         
         // 추가적인 로직 작성...
+        
+        // 1) CSV -> ClothingBin으로 변환
+        loadClothingBinFromAllCVS()
+        // 2) 화면안의 좌표 구하기
+        
+        // 3) 화면안의 좌표에 들어오는 것만 반환
+        // 4) clothingBinArray 변경
+        changeStringToClothingBin(from: clothingBinLocationArrayString)
+        extractClothingBinsWithinDistance(clothingBinArray, maxDistance: 1000)
+        
+        //5) 지도에 마커 추가
     }
     
     func loadMarkersInDistrict() {
@@ -98,7 +109,12 @@ class ClothingBinStore: ObservableObject{
         // 추가적인 로직 작성...
     }
     
-    
+    //MARK: - ClothingBin 초기화
+    func clearBinArray() {
+        clothingBinArray = []
+        clothingBinLocationArrayString = []
+    }
+
     
     // MARK: - CVS -> ClothingBin 데이터 변환 함수
     func loadClothingBinFromAllCVS() {
