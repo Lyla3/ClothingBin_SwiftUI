@@ -133,12 +133,12 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
             marker.captionRequestedWidth = 100 // 마커 캡션 너비 지정
             marker.captionText = bin.address
             
-//            marker. = bin.address
+            //            marker. = bin.address
             marker.captionMinZoom = 10
             marker.captionMaxZoom = 17
-//            marker.iconImage = NMFOverlayImage(name: "placeholder")
-//            marker.width = CGFloat(40)
-//            marker.height = CGFloat(40) 
+            //            marker.iconImage = NMFOverlayImage(name: "placeholder")
+            //            marker.width = CGFloat(40)
+            //            marker.height = CGFloat(40)
             
             markers.append(marker)
         }
@@ -242,6 +242,8 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         Coordinator.shared.view.mapView.moveCamera(cameraUpdate)
     }
     
+    
+    
     // MARK: - 지도 터치에 이용되는 Delegate
     /// 지도 터치 시 MarkerDetailView 창 닫기
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
@@ -249,4 +251,12 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         showMarkerDetailView = false
     }
     
+    // MARK: - 지도 중심 위치 확인에 이용되는 Delegate
+    func mapView(_ mapView: NMFMapView, cameraDidChangeBy reason: Int) {
+        let centerCoord = mapView.cameraPosition.target
+        print("지도 중심 좌표:", centerCoord)
+        
+        // 여기에서 필요한 추가 작업 수행
+        
+    }
 }
