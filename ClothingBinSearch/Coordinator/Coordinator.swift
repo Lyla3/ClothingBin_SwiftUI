@@ -29,8 +29,10 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     @Published var currentShopId: String = "보리마루"
     @Published var isBookMarkTapped: Bool = false
     @Published var showMarkerDetailView: Bool = false
-    @Published var coord: NMGLatLng = NMGLatLng(lat: 0, lng: 0)
+    @Published var coord: NMGLatLng = NMGLatLng(lat: 0, lng: 0) // 현재 위치
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
+    @Published var currentScreenCoord: NMGLatLng = NMGLatLng(lat: 0, lng: 0) // 현재 위치
+
     
     private override init() {
         super.init()
@@ -51,6 +53,8 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         
         // MARK: - 지도 터치 시 발생하는 touchDelegate
         view.mapView.touchDelegate = self
+        // MARK: - 카메라 이동시 발생하는 Delegate
+        view.mapView.addCameraDelegate(delegate: self)
     }
     
     deinit {
@@ -206,9 +210,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
                     self.view.mapView.moveCamera(cameraUpdate)
                     self.showMarkerDetailView = true
                     self.currentShopId = marker.captionText
-                    print("showMarkerDetailView : \(self.showMarkerDetailView)")
-                    //print(currentShopId)
-                    
+                    print("showMarkerDetailView : \(self.showMarkerDetailView)")                    
                     return true
                 }
                 marker.mapView = view.mapView
@@ -242,8 +244,6 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         Coordinator.shared.view.mapView.moveCamera(cameraUpdate)
     }
     
-    
-    
     // MARK: - 지도 터치에 이용되는 Delegate
     /// 지도 터치 시 MarkerDetailView 창 닫기
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
@@ -252,11 +252,11 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     }
     
     // MARK: - 지도 중심 위치 확인에 이용되는 Delegate
-    func mapView(_ mapView: NMFMapView, cameraDidChangeBy reason: Int) {
-        let centerCoord = mapView.cameraPosition.target
-        print("지도 중심 좌표:", centerCoord)
-        
-        // 여기에서 필요한 추가 작업 수행
-        
+    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
+        print("카메라 변경 cameraDidChangeByReason - reason: \(reason)")
+//        let centerCoord = mapView.cameraPosition.target
+//        print("지도 중심 좌표:", centerCoord)
+        currentScreenCoord = mapView.cameraPosition.target
+        print("지도 중심 좌표:", currentScreenCoord)
     }
 }
