@@ -33,6 +33,17 @@ struct MapView: View {
                     )
                     .padding()
             }
+            Button {
+                Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentMap)
+            } label: {
+                Text("현재 지도")
+                    .background(
+                        Rectangle()
+                            .fill(.white)
+                    )
+                    .padding()
+                    .position(x:350, y:80)
+            }
 
         }
         .zIndex(1)

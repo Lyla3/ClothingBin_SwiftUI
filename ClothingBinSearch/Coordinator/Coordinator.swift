@@ -109,24 +109,30 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     
     func makeMarkers() {
         for shopMarker in clothingBinStore.clothingBinArray {
-            let marker = NMFMarker()
             
-            marker.position = shopMarker.coord
-            marker.captionRequestedWidth = 100 // 마커 캡션 너비 지정
-            marker.captionText = shopMarker.info
-            marker.captionMinZoom = 10
-            marker.captionMaxZoom = 17
-            marker.iconImage = NMFOverlayImage(name: "placeholder")
-            marker.width = CGFloat(40)
-            marker.height = CGFloat(40)
+            DispatchQueue.global(qos: .default).async {
+                let marker = NMFMarker()
+                
+                marker.position = shopMarker.coord
+                marker.captionRequestedWidth = 100 // 마커 캡션 너비 지정
+                marker.captionText = shopMarker.info
+                marker.captionMinZoom = 10
+                marker.captionMaxZoom = 17
+                marker.iconImage = NMFOverlayImage(name: "placeholder")
+                marker.width = CGFloat(40)
+                marker.height = CGFloat(40)
+                
+                self.markers.append(marker)
+            }
             
-            markers.append(marker)
+            //[weak self]\
+            DispatchQueue.main.async {
+                for marker in self.markers {
+                    marker.mapView = self.view.mapView
+                }
+            }
+            markerTapped()
         }
-        
-        for marker in markers {
-            marker.mapView = view.mapView
-        }
-        markerTapped()
     }
     
     func makeMarkers(by bins: [ClothingBin]) {
@@ -151,6 +157,13 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
             marker.mapView = view.mapView
         }
         markerTapped()
+    }
+    
+    func removeMarkers() {
+        for marker in markers {
+            marker.mapView = nil
+        }
+        markers.removeAll()
     }
     
     //    func makeBookMarkedMarkers() {
