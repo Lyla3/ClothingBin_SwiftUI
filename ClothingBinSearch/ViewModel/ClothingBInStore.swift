@@ -16,12 +16,13 @@ class ClothingBinStore: ObservableObject{
     var clothingBinLocationArrayString : [[String]] = []      // String타입의 의류수거함 배열
     
     private var currentLocationButtonCount = 0
+    private var mapButtonSelected: Bool = false
     
     // 버튼 종류에 따라 메서드 실행
     func handleButtonTap(buttonType: ButtonType) {
         switch buttonType {
         case .currentLocation:
-            if currentButtonType == .currentLocation && currentLocationButtonCount >= 1 {
+            if currentButtonType == .currentLocation && currentLocationButtonCount >= 1 || mapButtonSelected == false {
                 // 현재 위치로 지도를 이동하는 기능 실행
                 moveMapToCurrentLocation()
                 
@@ -29,11 +30,12 @@ class ClothingBinStore: ObservableObject{
                 loadButtonsNearCurrentLocation()
                 
                 currentLocationButtonCount = 1
-            } else if currentButtonType != .currentLocation || (currentButtonType == .currentLocation && currentLocationButtonCount == 1) {
+            } else if currentButtonType != .currentLocation || (currentButtonType == .currentLocation && currentLocationButtonCount == 1)  || mapButtonSelected == true  {
                 // 현재 위치로 지도만 이동하는 기능 실행
                 moveMapToCurrentLocation()
                 
                 currentLocationButtonCount += 1
+                mapButtonSelected = false
             }
             
             currentButtonType = buttonType
@@ -43,12 +45,14 @@ class ClothingBinStore: ObservableObject{
             loadMarkersOnScreen()
             
             currentButtonType = buttonType
+            mapButtonSelected = true
             
         case .region:
             // 지역구의 마커를 불러오는 기능 실행
             loadMarkersInDistrict()
             
             currentButtonType = buttonType
+            mapButtonSelected = true
         default:
             break
         }
@@ -129,7 +133,7 @@ class ClothingBinStore: ObservableObject{
     func loadClothingBinFromAllCVS() {
         for resource in Region.allCases {
             let path = Bundle.main.path(forResource: resource.getFileName(), ofType: "csv") ?? "\(Region.Gangnam.getFileName())"
-            print("path: \(path)")
+//            print("path: \(path)")
             parseCSVAt(url: URL(fileURLWithPath: path))
         }
     }
@@ -148,7 +152,7 @@ class ClothingBinStore: ObservableObject{
                     
                 }
 //                print("item:\(clothingBinLocationArray)")
-                print("array.count:\(clothingBinArray.count)")
+//                print("array.count:\(clothingBinArray.count)")
 
             }
         } catch {
