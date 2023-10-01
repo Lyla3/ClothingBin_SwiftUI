@@ -7,6 +7,8 @@
 
 import SwiftUI
 import NMapsMap
+
+//import Combine
 //import Firebase
 //import FirebaseAuth
 //import FirebaseFirestore
@@ -32,12 +34,13 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     @Published var coord: NMGLatLng = NMGLatLng(lat: 0, lng: 0) // 현재 위치
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
     @Published var currentScreenCoord: NMGLatLng = NMGLatLng(lat: 0, lng: 0) // 현재 위치
+    @Published var isShowingZoomlevelGuide: Bool = false // 줌 레벨
+    @Published var zoomlevelGuide: Double = 10 // 줌 레벨
 
-    
     private override init() {
         super.init()
         
-        view.showZoomControls = true
+        view.showZoomControls = false
         view.mapView.positionMode = .direction
         view.mapView.isNightModeEnabled = true
         // MARK: - 줌 레벨 제한
@@ -54,7 +57,8 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         // MARK: - 지도 터치 시 발생하는 touchDelegate
         view.mapView.touchDelegate = self
         // MARK: - 카메라 이동시 발생하는 Delegate
-        view.mapView.addCameraDelegate(delegate: self)
+//        view.mapView.addCameraDelegate(delegate: self)
+        
     }
     
     deinit {
@@ -266,10 +270,33 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     
     // MARK: - 지도 중심 위치 확인에 이용되는 Delegate
     func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
-        print("카메라 변경 cameraDidChangeByReason - reason: \(reason)")
+//        print("카메라 변경 cameraDidChangeByReason - reason: \(reason)")
 //        let centerCoord = mapView.cameraPosition.target
 //        print("지도 중심 좌표:", centerCoord)
         currentScreenCoord = mapView.cameraPosition.target
-        print("지도 중심 좌표:", currentScreenCoord)
+//        print("지도 중심 좌표:", currentScreenCoord)
     }
+    
+//    func mapView(_ mapView: NMFMapView, didChangeZoomLevel zoomLevel: Double, byReason reason: Int) {
+//        print("isShowingZoomlevelGuide = \(zoomLevel)")
+//
+//        if zoomLevel < 12 {
+//            print("isShowingZoomlevelGuide = true")
+//            print("isShowingZoomlevelGuide = \(zoomLevel)")
+//            isShowingZoomlevelGuide = true
+//        } else {
+//            print("isShowingZoomlevelGuide = \(zoomLevel)")
+//            isShowingZoomlevelGuide = false
+//        }
+//        view.mapView.zoomLevel
+//    }
+//
+    func receiveZoomlevel() {
+        
+    }
+//    func mapView(_ mapView: NMFMapView, didChangeZoomLevel zoomLevel: Double, byReason reason: Int) {
+//        self.zoomlevelGuide = zoomLevel
+//        // Rest of your code
+//    }
+
 }
