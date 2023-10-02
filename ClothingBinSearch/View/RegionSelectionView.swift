@@ -18,13 +18,20 @@ struct RegionSelectionView: View {
                 Spacer()
                 Button("Done") { isShowingModal = false }
             }
-            Text("서울 강남")
-            Text("서울 강남")
-            Text("서울 강남")
-            Text("서울 강남")
-            Text("서울 강남")
-            Text("서울 강남")
-            Text("서울 강남")
+            Button {
+                // 강남구 배열에 넣기
+                Coordinator.shared.clothingBinStore.selectedRegion = .Gangnam
+                Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .region)
+            } label: {
+                Text("서울 강남")
+            }
+            Button {
+                // 강남구 배열에 넣기
+                Coordinator.shared.clothingBinStore.selectedRegion = .Gongro
+                Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .region)
+            } label: {
+                Text("서울 종로")
+            }
         }
     }
 }

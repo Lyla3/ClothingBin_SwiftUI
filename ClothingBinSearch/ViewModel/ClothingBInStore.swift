@@ -13,12 +13,13 @@ class ClothingBinStore: ObservableObject{
     @Published var clothingBinArray:[ClothingBin] = []
     @Published var currentButtonType: ButtonType = .none
 
-    var clothingBinLocationArrayString : [[String]] = []      // String타입의 의류수거함 배열
-    
+    var clothingBinLocationArrayString: [[String]] = []      // String타입의 의류수거함 배열
+    var selectedRegion: Region = .Gangnam
     private var currentLocationButtonCount = 0
     private var mapButtonSelected: Bool = false
     
     // 버튼 종류에 따라 메서드 실행
+    //MARK: - 버튼 종류 받아오기
     func handleButtonTap(buttonType: ButtonType) {
         switch buttonType {
         case .currentLocation:
@@ -50,7 +51,6 @@ class ClothingBinStore: ObservableObject{
         case .region:
             // 지역구의 마커를 불러오는 기능 실행
             loadMarkersInDistrict()
-            
             currentButtonType = buttonType
             mapButtonSelected = true
         default:
@@ -58,6 +58,7 @@ class ClothingBinStore: ObservableObject{
         }
     }
     
+    //MARK: - 현재위치로 지도 이동
     func moveMapToCurrentLocation() {
         // 현재 위치로 지도를 이동하는 로직 작성...
         
@@ -66,9 +67,8 @@ class ClothingBinStore: ObservableObject{
         // 추가적인 로직 작성...
     }
     
+    //MARK: - 1) 현재 위치 가까이의 의류수거함을 로드
     func loadButtonsNearCurrentLocation() {
-        // 현재 마커 삭제 필요
-        
         // 현재 위치 1km 이내의 버튼을 로드하는 로직 작성...
         print("현재 위치 1km 이내의 버튼 로드")
         
@@ -83,10 +83,8 @@ class ClothingBinStore: ObservableObject{
         
         //5) 지도에 마커 추가
         Coordinator.shared.makeMarkers(by: clothingBinArray)
-        
-        
     }
-    
+    //MARK: - 2) 현재 화면의 의류수거함을 로드
     func loadMarkersOnScreen() {
         clearBinArray()
         // 현재 화면에 보이는 마커들을 로드하는 로직 작성...
@@ -110,15 +108,19 @@ class ClothingBinStore: ObservableObject{
         
         //5) 지도에 마커 추가
         Coordinator.shared.makeMarkers(by: clothingBinArray)
-
     }
     
+    //MARK: - 3) 선택한 지역구의 의류수거함을 로드
     func loadMarkersInDistrict() {
         // 선택한 지역구의 마커들을 로드하는 로직 작성...
-        
+        clearBinArray()
         print("지역구 내 마커들 로드")
         
         // 추가적인 로직 작성...
+        loadClothingBinFromRegionCVS()
+        
+        changeStringToClothingBin(from: clothingBinLocationArrayString)
+        Coordinator.shared.makeMarkers(by: clothingBinArray)
     }
     
     //MARK: - ClothingBin 초기화
@@ -136,6 +138,11 @@ class ClothingBinStore: ObservableObject{
 //            print("path: \(path)")
             parseCSVAt(url: URL(fileURLWithPath: path))
         }
+    }
+    
+    func loadClothingBinFromRegionCVS() {
+        let path = Bundle.main.path(forResource: selectedRegion.getFileName(), ofType: "csv") ?? "\(Region.Gangnam.getFileName())"
+        parseCSVAt(url: URL(fileURLWithPath: path))
     }
     
     //MARK: - 엑셀 파일 파싱 함수
@@ -230,6 +237,7 @@ class ClothingBinStore: ObservableObject{
                                 }
         clothingBinArray = extractedBins
     }
+   
     
     // MARK: - 현재 위치에서부터 좌표까지 거리 계산 함수
     func distanceWhitinCLocation(_ lat: Double, _ log: Double) -> CLLocationDistance {
