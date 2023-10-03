@@ -15,7 +15,7 @@ struct MapView: View {
     //    @ObservedObject var clothingBinStore: ClothingBinStore = ClothingBinStore()
     
     //@State private var coord: NMGLatLng = NMGLatLng(lat: 36.444, lng: 127.332)
-    @State var isShowingZoomlevelGuide: Double = Coordinator.shared.view.mapView.zoomLevel
+    @State var isShowingZoomlevelGuide: Bool = false
     @State var isShowingRegionSelectionView: Bool = false
     
 //    @ObservedObject var zoomLevelObserver = ZoomLevelObserver()
@@ -39,7 +39,11 @@ struct MapView: View {
             }
             HStack{
                 Button {
-                    Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentMap)
+                    if Coordinator.shared.view.mapView.zoomLevel >= 13 {
+                        Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentMap)
+                    } else {
+                        isShowingZoomlevelGuide = true
+                    }
                 } label: {
                     Text("현 지도에서 검색")
                         .foregroundColor(.black)
@@ -95,6 +99,17 @@ struct MapView: View {
                 }
                 .transition(.move(edge: .bottom))
             }
+            if isShowingZoomlevelGuide && Coordinator.shared.view.mapView.zoomLevel < 13 { // 수정된 부분
+                            ZoomLevelGuideView()
+                                .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2 + 200)
+                                .onAppear {
+                                    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+                                        isShowingZoomlevelGuide = false
+                                        print("\(isShowingZoomlevelGuide)")
+                                    }
+                                    print("zoomLevel < 13")
+                                }
+                        }
 //            if isShowingZoomlevelGuide < 15 {
 //                ZoomLevelGuideView()
 //                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2 + 200)

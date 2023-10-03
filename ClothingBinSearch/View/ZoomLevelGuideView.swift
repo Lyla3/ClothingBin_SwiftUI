@@ -16,6 +16,7 @@ struct ZoomLevelGuideView: View {
 //                .ignoresSafeArea()
             
             Text("지도를 확대해주세요.")
+                .foregroundColor(.white)
                 .font(.body)
                 .frame(width:300)
                 .padding(.horizontal, 4)
@@ -25,7 +26,7 @@ struct ZoomLevelGuideView: View {
                     .stroke(.white.opacity(0.5))
                     .background(
                     RoundedRectangle(cornerRadius: 15)
-                        .fill(.black.opacity(0.25))
+                        .fill(.black.opacity(0.7))
                 )
                 )
             
