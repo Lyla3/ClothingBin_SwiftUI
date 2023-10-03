@@ -29,7 +29,6 @@
 		63BB0A002AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09F72AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv */; };
 		63BB0A012AC33DCD002CCE4E /* Seoul_gwanak.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09F82AC33DCD002CCE4E /* Seoul_gwanak.csv */; };
 		63BB0A042AC33E0F002CCE4E /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB0A032AC33E0F002CCE4E /* Region.swift */; };
-		63CD49022AC450B900C782EF /* ZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49012AC450B900C782EF /* ZStackView.swift */; };
 		63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */; };
 		63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49082AC9F09300C782EF /* RegionSelectionView.swift */; };
 /* End PBXBuildFile section */
@@ -59,7 +58,6 @@
 		63BB09F72AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Yeoungdeungpo.csv; sourceTree = "<group>"; };
 		63BB09F82AC33DCD002CCE4E /* Seoul_gwanak.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_gwanak.csv; sourceTree = "<group>"; };
 		63BB0A032AC33E0F002CCE4E /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
-		63CD49012AC450B900C782EF /* ZStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackView.swift; sourceTree = "<group>"; };
 		63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomLevelGuideView.swift; sourceTree = "<group>"; };
 		63CD49082AC9F09300C782EF /* RegionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionView.swift; sourceTree = "<group>"; };
 		691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingBinSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				63BB09DF2AC077D4002CCE4E /* MapView.swift */,
-				63CD49012AC450B900C782EF /* ZStackView.swift */,
 				63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */,
 				63CD49082AC9F09300C782EF /* RegionSelectionView.swift */,
 			);
@@ -335,7 +332,6 @@
 			files = (
 				63BB0A042AC33E0F002CCE4E /* Region.swift in Sources */,
 				63BB09E62AC07B18002CCE4E /* ClothingBInStore.swift in Sources */,
-				63CD49022AC450B900C782EF /* ZStackView.swift in Sources */,
 				63BB09E82AC07FFB002CCE4E /* ButtonType.swift in Sources */,
 				63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */,
 				63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */,

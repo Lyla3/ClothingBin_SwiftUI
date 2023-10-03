@@ -25,13 +25,11 @@ struct RegionSelectionView: View {
                         Text("지역선택")
                             .font(.title2)
                     }
-                
             }
             .padding()
             
             ForEach(Region.allCases, id: \.self) { region in
                 Button(action: {
-                    // 버튼이 클릭되었을 때 수행할 동작
                     print("Selected Region:", region.rawValue)
                     Coordinator.shared.clothingBinStore.selectedRegion = region
                     Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .region)

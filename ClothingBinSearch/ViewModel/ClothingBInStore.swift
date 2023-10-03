@@ -173,9 +173,7 @@ class ClothingBinStore: ObservableObject{
         }
     }
     
-    func changeStringToClothingBin(from clothinBinStringArray:[[String]]) {
-        var currentMapPonitArray : [ClothingBin] = []
-        
+    func changeStringToClothingBin(from clothinBinStringArray:[[String]]) {        
         for clothingBox in clothinBinStringArray {
             let clothingBoxInfo = clothingBox[0]
             let clothingBoxLat = Double(clothingBox[1]) ?? 0.0

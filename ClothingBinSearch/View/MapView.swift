@@ -8,18 +8,10 @@
 import SwiftUI
 import NMapsMap
 
-
 struct MapView: View {
     
-    
-    //    @ObservedObject var clothingBinStore: ClothingBinStore = ClothingBinStore()
-    
-    //@State private var coord: NMGLatLng = NMGLatLng(lat: 36.444, lng: 127.332)
     @State var isShowingZoomlevelGuide: Bool = false
     @State var isShowingRegionSelectionView: Bool = false
-    
-//    @ObservedObject var zoomLevelObserver = ZoomLevelObserver()
-
     
     var body: some View {
         ZStack(alignment:.topTrailing) {
@@ -28,14 +20,15 @@ struct MapView: View {
                 Button {
                     Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
                 } label: {
-                    Text("현재위치")
-                        .background(
-                            Rectangle()
-                                .fill(.white)
-                        )
-                        .padding()
+                    Image("crosshair")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 22)
+                        .padding(8)
+                        .background(.white)
+                        .cornerRadius(20)
                 }
-                .position(x:350, y:40)
+                .position(x:UIScreen.main.bounds.width - 34, y: 32)
             }
             HStack{
                 Button {
@@ -46,6 +39,7 @@ struct MapView: View {
                     }
                 } label: {
                     Text("현 지도에서 검색")
+                        .font(.footnote)
                         .foregroundColor(.black)
                         .padding(10)
                         .padding(.horizontal,7)
@@ -53,43 +47,40 @@ struct MapView: View {
                             Rectangle()
                                 .fill(.white)
                                 .cornerRadius(20)
-//                                .padding(.horizontal,100)
                         )
                         .padding()
-
+                    
                 }
-                .position(x:UIScreen.main.bounds.width / 2, y:40)
-               
+                .position(x:UIScreen.main.bounds.width / 2, y: 32)
+                
             }
             Button {
                 // 지역선택 뷰 올라오게
                 isShowingRegionSelectionView.toggle()
             } label: {
                 Text("지역선택")
-                    .font(.title3)
+                    .font(.body)
+                    .frame(width:  UIScreen.main.bounds.width - 21)
                     .background(
                         Rectangle()
                             .fill(.white)
-                            .frame(width: 350, height: 45)
-                            .cornerRadius(13)
+                            .frame(width: UIScreen.main.bounds.width - 21, height: 45)
+                            .cornerRadius(10)
                     )
                     .foregroundColor(.black)
                     .padding()
+                
             }
-            .position(x:UIScreen.main.bounds.width / 2, y:700)
+            .position(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height - 120)
             
             if isShowingRegionSelectionView {
                 Color.black.opacity(0.4)
                     .onTapGesture {
-                        // Dismiss the region selection view when tapping outside
                         isShowingRegionSelectionView.toggle()
                     }
                     .ignoresSafeArea()
                 
                 VStack {
-//                    Spacer()
-                    
-                    // This is the content of your half-screen modal
                     RegionSelectionView(isShowingModal: $isShowingRegionSelectionView)
                         .background(Color.white)
                         .cornerRadius(10)
@@ -99,35 +90,17 @@ struct MapView: View {
                 }
                 .transition(.move(edge: .bottom))
             }
-            if isShowingZoomlevelGuide && Coordinator.shared.view.mapView.zoomLevel < 13 { // 수정된 부분
-                            ZoomLevelGuideView()
-                                .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2 + 200)
-                                .onAppear {
-                                    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
-                                        isShowingZoomlevelGuide = false
-                                        print("\(isShowingZoomlevelGuide)")
-                                    }
-                                    print("zoomLevel < 13")
-                                }
+            if isShowingZoomlevelGuide && Coordinator.shared.view.mapView.zoomLevel < 13 {
+                ZoomLevelGuideView()
+                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2 + 200)
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+                            isShowingZoomlevelGuide = false
+                            print("\(isShowingZoomlevelGuide)")
                         }
-//            if isShowingZoomlevelGuide < 15 {
-//                ZoomLevelGuideView()
-//                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2 + 200)
-//                    .onAppear {
-//                        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
-////                            isShowingZoomlevelGuide = false
-//                            print("\(isShowingZoomlevelGuide)")
-//                        }
-//                        print("zoomLevel < 12")
-//                    }
-//            }
-//            HStack{
-//                Text("Zoom Level: \(zoomLevelObserver.zoomLevel)")
-//                    .onReceive(Coordinator.shared.$zoomlevelGuide) { newZoomLevel in
-//                        // Handle changes to the zoom level here
-//                        zoomLevelObserver.zoomLevel = newZoomLevel
-//                    }
-//            }
+                        print("zoomLevel < 13")
+                    }
+            }
         }
         .zIndex(1)
         .onAppear{
