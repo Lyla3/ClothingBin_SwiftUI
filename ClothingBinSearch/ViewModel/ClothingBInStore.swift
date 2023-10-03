@@ -83,6 +83,7 @@ class ClothingBinStore: ObservableObject{
         
         //5) 지도에 마커 추가
         Coordinator.shared.makeMarkers(by: clothingBinArray)
+        
     }
     //MARK: - 2) 현재 화면의 의류수거함을 로드
     func loadMarkersOnScreen() {
@@ -121,6 +122,11 @@ class ClothingBinStore: ObservableObject{
         
         changeStringToClothingBin(from: clothingBinLocationArrayString)
         Coordinator.shared.makeMarkers(by: clothingBinArray)
+        
+        //가운데로 카메라 보내기
+        Coordinator.shared.view.mapView.zoomLevel = 12
+
+        Coordinator.shared.moveCameraToCenter()
     }
     
     //MARK: - ClothingBin 초기화

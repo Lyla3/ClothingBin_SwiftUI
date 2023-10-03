@@ -42,13 +42,17 @@ struct MapView: View {
                     Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentMap)
                 } label: {
                     Text("현 지도에서 검색")
+                        .foregroundColor(.black)
                         .padding(10)
+                        .padding(.horizontal,7)
                         .background(
                             Rectangle()
                                 .fill(.white)
-                                .cornerRadius(22)
+                                .cornerRadius(20)
+//                                .padding(.horizontal,100)
                         )
                         .padding()
+
                 }
                 .position(x:UIScreen.main.bounds.width / 2, y:40)
                
