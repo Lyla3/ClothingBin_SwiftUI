@@ -29,7 +29,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     var locationManager: CLLocationManager?
     
     @Published var currentMarkerAddress: String = "주소"
-    @Published var isShowingBinDetailView: Bool = true
+    @Published var isShowingBinDetailView: Bool = false
     @Published var isBookMarkTapped: Bool = false
     @Published var showMarkerDetailView: Bool = false
     @Published var coord: NMGLatLng = NMGLatLng(lat: 0, lng: 0) // 현재 위치
@@ -230,6 +230,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
                 print("showMarkerDetailView : \(self.showMarkerDetailView)")
                 print(currentMarkerAddress)
                 marker.zIndex = 1
+                self.isShowingBinDetailView = true
                 return true
             }
             marker.mapView = view.mapView
