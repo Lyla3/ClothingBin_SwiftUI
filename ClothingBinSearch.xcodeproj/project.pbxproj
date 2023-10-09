@@ -29,6 +29,8 @@
 		63BB0A002AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09F72AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv */; };
 		63BB0A012AC33DCD002CCE4E /* Seoul_gwanak.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09F82AC33DCD002CCE4E /* Seoul_gwanak.csv */; };
 		63BB0A042AC33E0F002CCE4E /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB0A032AC33E0F002CCE4E /* Region.swift */; };
+		63C7EB6F2AD430160002080D /* BinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7EB6E2AD430160002080D /* BinDetailView.swift */; };
+		63C7EB712AD45F110002080D /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7EB702AD45F110002080D /* Color+.swift */; };
 		63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */; };
 		63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49082AC9F09300C782EF /* RegionSelectionView.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		63BB09F72AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Yeoungdeungpo.csv; sourceTree = "<group>"; };
 		63BB09F82AC33DCD002CCE4E /* Seoul_gwanak.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_gwanak.csv; sourceTree = "<group>"; };
 		63BB0A032AC33E0F002CCE4E /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		63C7EB6E2AD430160002080D /* BinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinDetailView.swift; sourceTree = "<group>"; };
+		63C7EB702AD45F110002080D /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomLevelGuideView.swift; sourceTree = "<group>"; };
 		63CD49082AC9F09300C782EF /* RegionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionView.swift; sourceTree = "<group>"; };
 		691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingBinSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,7 @@
 				63BB09DF2AC077D4002CCE4E /* MapView.swift */,
 				63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */,
 				63CD49082AC9F09300C782EF /* RegionSelectionView.swift */,
+				63C7EB6E2AD430160002080D /* BinDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				63BB09E72AC07FFB002CCE4E /* ButtonType.swift */,
+				63C7EB702AD45F110002080D /* Color+.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -335,10 +341,12 @@
 				63BB09E82AC07FFB002CCE4E /* ButtonType.swift in Sources */,
 				63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */,
 				63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */,
+				63C7EB6F2AD430160002080D /* BinDetailView.swift in Sources */,
 				63BB09CA2AC0637D002CCE4E /* ContentView.swift in Sources */,
 				63BB09E42AC0787B002CCE4E /* ClothingBin.swift in Sources */,
 				63BB09E22AC077E7002CCE4E /* NaverMap.swift in Sources */,
 				63BB09E02AC077D4002CCE4E /* MapView.swift in Sources */,
+				63C7EB712AD45F110002080D /* Color+.swift in Sources */,
 				63BB09C82AC0637D002CCE4E /* ClothingBinSearchApp.swift in Sources */,
 				63BB09DE2AC06E43002CCE4E /* Coordinator.swift in Sources */,
 			);
