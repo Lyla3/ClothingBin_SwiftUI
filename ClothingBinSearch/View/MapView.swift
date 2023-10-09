@@ -10,8 +10,10 @@ import NMapsMap
 
 struct MapView: View {
     
+    @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var isShowingZoomlevelGuide: Bool = false
     @State var isShowingRegionSelectionView: Bool = false
+    @State var isShowingBinDetailView: Bool = true
     
     var body: some View {
         ZStack(alignment:.topTrailing) {
@@ -100,6 +102,11 @@ struct MapView: View {
                         }
                         print("zoomLevel < 13")
                     }
+            }
+            if isShowingBinDetailView {
+                BinDetailView(screenWidth: (UIScreen.main.bounds.width), isShowingBinDetailView: $isShowingBinDetailView, currentMarkerAddress: $coordinator.currentMarkerAddress)
+                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2 + 210)
+                
             }
         }
         .zIndex(1)
