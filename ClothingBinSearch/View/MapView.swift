@@ -102,19 +102,40 @@ struct MapView: View {
                         print("zoomLevel < 13")
                     }
             }
+                
+           
             if coordinator.isShowingBinDetailView {
                 BinDetailView(screenWidth: (UIScreen.main.bounds.width), isShowingBinDetailView: $coordinator.isShowingBinDetailView, currentMarkerAddress: $coordinator.currentMarkerAddress)
                     .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 150)
                 
             }
         }
+        .alert(isPresented: $coordinator.showingLocationPermissionAlert) {
+                    Alert(
+                        title: Text("위치 권한 허용"),
+                        message: Text("설정>의류수거함 검색 에서 위치 서비스를 허용하시면 현재위치 의류수거함 정보를 보실 수 있습니다."),
+                        primaryButton: .default(Text("설정하기"), action: openSettings),
+                        secondaryButton: .cancel()
+                    )
+                }
         .zIndex(1)
         .onAppear{
             Coordinator.shared.checkIfLocationServicesIsEnabled()
             Coordinator.shared.moveCameraPosition()
             Coordinator.shared.makeMarkers()
+            print("coordinator.showingLocationPermissionAlert:\(coordinator.showingLocationPermissionAlert)")
         }
     }
+    
+    func openSettings() {
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            
+            if UIApplication.shared.canOpenURL(settingsURL) {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        // 위치 설정 끄기
+        coordinator.showingLocationPermissionAlert = false
+        }
     
 }
 

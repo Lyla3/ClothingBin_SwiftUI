@@ -12,6 +12,7 @@ import NMapsMap
 class ClothingBinStore: ObservableObject{
     @Published var clothingBinArray:[ClothingBin] = []
     @Published var currentButtonType: ButtonType = .none
+    
 
     var clothingBinLocationArrayString: [[String]] = []      // String타입의 의류수거함 배열
     var selectedRegion: Region = .Gangnam
@@ -60,17 +61,18 @@ class ClothingBinStore: ObservableObject{
     
     //MARK: - 현재위치로 지도 이동
     func moveMapToCurrentLocation() {
-        // 현재 위치로 지도를 이동하는 로직 작성...
-        
-        print("현재 위치로 지도 이동")
-        Coordinator.shared.fetchUserLocation()
-        // 추가적인 로직 작성...
+        // 현재 위치 권한 확인
+        if Coordinator.shared.locationManager?.authorizationStatus.rawValue == 3 || Coordinator.shared.locationManager?.authorizationStatus.rawValue == 4 {
+            print("현재 위치로 지도 이동")
+            Coordinator.shared.fetchUserLocation()
+        } else {
+            Coordinator.shared.showingLocationPermissionAlert = true
+        }
     }
     
     //MARK: - 1) 현재 위치 가까이의 의류수거함을 로드
     func loadButtonsNearCurrentLocation() {
-        // 현재 위치 1km 이내의 버튼을 로드하는 로직 작성...
-        print("현재 위치 1km 이내의 버튼 로드")
+        // 현재 위치 1km 이내의 버튼을 로드
         
         clearBinArray()
         // 1) CSV -> ClothingBin으로 변환
@@ -89,10 +91,6 @@ class ClothingBinStore: ObservableObject{
     func loadMarkersOnScreen() {
         clearBinArray()
         // 현재 화면에 보이는 마커들을 로드하는 로직 작성...
-        
-        print("현재 화면의 마커들 로드")
-        
-        // 추가적인 로직 작성...
         
         // 1) CSV -> ClothingBin으로 변환
         loadClothingBinFromAllCVS()
@@ -164,8 +162,6 @@ class ClothingBinStore: ObservableObject{
 //                    print("item:\(item)")
                     
                 }
-//                print("item:\(clothingBinLocationArray)")
-//                print("array.count:\(clothingBinArray.count)")
 
             }
         } catch {

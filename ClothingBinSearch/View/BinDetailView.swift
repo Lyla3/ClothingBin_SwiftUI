@@ -30,8 +30,10 @@ struct BinDetailView: View {
                         .foregroundColor(.black)
                 }
             }
+//            .padding(5)
+            .padding(10)
             .padding(.vertical ,3)
-            .padding(5)
+
             
             HStack{
                 Text("주소")
@@ -62,22 +64,25 @@ struct BinDetailView: View {
 
 
             }
-            .padding(.horizontal, 4)
+            .padding(.horizontal,10)
             HStack{
                 Button(action: {
                                openNaverMapWithSearch(address: currentMarkerAddress)
                            }) {
-                               Text("네이버 지도에서 검색")
-                                   .font(.caption)
+                               Text("네이버 지도로 보기")
+                                   .font(.footnote)
                                    .padding(10)
                                    .background(Color.lightGrayColor)
                                    .foregroundColor(.black)
                                    .cornerRadius(10)
                            }
             }
+            .padding()
+            Spacer()
         }
-        .frame(width: screenWidth, height: 150)
+        .frame(width: screenWidth, height: 200)
         .background(.white)
+       
         
     }
     private func copyToClipboard(text: String) {
