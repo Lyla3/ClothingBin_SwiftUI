@@ -21,8 +21,9 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     var bookMarkedMarkers: [NMFMarker] = []
     var locationManager: CLLocationManager?
     
-    @Published var showingLocationPermissionAlert: Bool = false
-    
+    @Published var isShowingLocationPermissionAlert: Bool = false
+    @Published var isShowingMarkerEmptyGuiedView: Bool = false
+
     @Published var currentMarkerAddress: String = "주소"
     @Published var isShowingBinDetailView: Bool = false
     @Published var isBookMarkTapped: Bool = false
@@ -54,7 +55,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         // MARK: - 지도 터치 시 발생하는 touchDelegate
         view.mapView.touchDelegate = self
         
-        showingLocationPermissionAlert = false
+        isShowingLocationPermissionAlert = false
         
     }
     

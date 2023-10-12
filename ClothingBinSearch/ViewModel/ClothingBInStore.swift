@@ -13,7 +13,6 @@ class ClothingBinStore: ObservableObject{
     @Published var clothingBinArray:[ClothingBin] = []
     @Published var currentButtonType: ButtonType = .none
     
-
     var clothingBinLocationArrayString: [[String]] = []      // String타입의 의류수거함 배열
     var selectedRegion: Region = .Gangnam
     private var currentLocationButtonCount = 0
@@ -39,9 +38,7 @@ class ClothingBinStore: ObservableObject{
                 currentLocationButtonCount += 1
                 mapButtonSelected = false
             }
-            
             currentButtonType = buttonType
-            
         case .currentMap:
             // 현재 화면의 마커들을 불러오는 기능 실행
             loadMarkersOnScreen()
@@ -66,20 +63,15 @@ class ClothingBinStore: ObservableObject{
             print("현재 위치로 지도 이동")
             Coordinator.shared.fetchUserLocation()
         } else {
-            Coordinator.shared.showingLocationPermissionAlert = true
+            Coordinator.shared.isShowingLocationPermissionAlert = true
         }
     }
     
     //MARK: - 1) 현재 위치 가까이의 의류수거함을 로드
     func loadButtonsNearCurrentLocation() {
-        // 현재 위치 1km 이내의 버튼을 로드
-        
         clearBinArray()
-        // 1) CSV -> ClothingBin으로 변환
         loadClothingBinFromAllCVS()
-        // 2) 가까운 순서대로 (sort)
-        // 3) 기준에 맞는 것 반환
-        // 4) clothingBinArray 변경
+      
         changeStringToClothingBin(from: clothingBinLocationArrayString)
         extractClothingBinsWithinDistance(clothingBinArray, maxDistance: 600)
         
@@ -90,32 +82,24 @@ class ClothingBinStore: ObservableObject{
     //MARK: - 2) 현재 화면의 의류수거함을 로드
     func loadMarkersOnScreen() {
         clearBinArray()
-        // 현재 화면에 보이는 마커들을 로드하는 로직 작성...
         
-        // 1) CSV -> ClothingBin으로 변환
         loadClothingBinFromAllCVS()
-        // 2) 화면안의 좌표 구하기($표시는 왜?)
-        
-        // 위 지점에서 distance 몇 미터 이내만 반환
-        
-        // 3) 화면안의 좌표에 들어오는 것만 반환
-       
-        // 4) clothingBinArray 변경
         changeStringToClothingBin(from: clothingBinLocationArrayString)
         extractClothingBinsWithinMap(clothingBinArray, maxDistance: 400)
-//        extractClothingBinsWithinDistance(clothingBinArray, maxDistance: 1000)
         
-        //5) 지도에 마커 추가
-        Coordinator.shared.makeMarkers(by: clothingBinArray)
+        if clothingBinArray.count > 0 {
+            Coordinator.shared.makeMarkers(by: clothingBinArray)
+        } else {
+            //마커가 없으면 안내
+            Coordinator.shared.isShowingMarkerEmptyGuiedView = true
+        }
     }
     
     //MARK: - 3) 선택한 지역구의 의류수거함을 로드
     func loadMarkersInDistrict() {
-        // 선택한 지역구의 마커들을 로드하는 로직 작성...
         clearBinArray()
         print("지역구 내 마커들 로드")
         
-        // 추가적인 로직 작성...
         loadClothingBinFromRegionCVS()
         
         changeStringToClothingBin(from: clothingBinLocationArrayString)
