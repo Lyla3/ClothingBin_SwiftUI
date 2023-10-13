@@ -14,12 +14,12 @@ import NMapsMap
 
 struct NaverMap: UIViewRepresentable {
     // 데이터 
-//    @EnvironmentObject var userDataStore: UserStore
-//    @EnvironmentObject var shopDataStore: ShopDataStore
+    //    @EnvironmentObject var userDataStore: UserStore
+    //    @EnvironmentObject var shopDataStore: ShopDataStore
     
     //    @Binding var coord: (Double, Double)
     //    @Binding var userLocation: (Double, Double)
-//    @Binding var isBookMarkTapped: Bool
+    //    @Binding var isBookMarkTapped: Bool
     
     
     

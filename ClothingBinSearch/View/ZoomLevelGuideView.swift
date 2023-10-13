@@ -10,11 +10,6 @@ import SwiftUI
 struct ZoomLevelGuideView: View {
     var body: some View {
         ZStack{
-//            Rectangle()
-//                .fill(.black.opacity(0.5))
-//                .blur(radius: 2)
-//                .ignoresSafeArea()
-            
             Text("지도를 확대해주세요.")
                 .foregroundColor(.white)
                 .font(.body)
@@ -29,8 +24,6 @@ struct ZoomLevelGuideView: View {
                         .fill(.black.opacity(0.7))
                 )
                 )
-            
-
         }
     }
 }
