@@ -28,6 +28,7 @@ struct MapView: View {
                         .padding(8)
                         .background(.white)
                         .cornerRadius(20)
+                        .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                 }
                 .position(x:UIScreen.main.bounds.width - 34, y: 32)
             }
@@ -47,7 +48,7 @@ struct MapView: View {
                         .background(
                             Rectangle()
                                 .fill(.white)
-                                .cornerRadius(20)
+                                .cornerRadius(20)                .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                         )
                         .padding()
                     
@@ -66,6 +67,7 @@ struct MapView: View {
                             .fill(.white)
                             .frame(width: UIScreen.main.bounds.width - 21, height: 45)
                             .cornerRadius(10)
+                            .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                     )
                     .foregroundColor(.black)
                     .padding()
