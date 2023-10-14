@@ -7,13 +7,8 @@
 
 import SwiftUI
 import NMapsMap
-//import Firebase
-//import FirebaseAuth
-//import FirebaseFirestore
-//import FirebaseFirestoreSwift
 
 //MARK: - Coordinator: NaverMap 담당 코디네이터
-
 final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
     
     static let shared = Coordinator()
@@ -26,21 +21,29 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     var bookMarkedMarkers: [NMFMarker] = []
     var locationManager: CLLocationManager?
     
-    @Published var currentShopId: String = "보리마루"
+    @Published var isShowingLocationPermissionAlert: Bool = false
+    @Published var isShowingMarkerEmptyGuiedView: Bool = false
+
+    @Published var currentMarkerAddress: String = "주소"
+    @Published var isShowingBinDetailView: Bool = false
     @Published var isBookMarkTapped: Bool = false
     @Published var showMarkerDetailView: Bool = false
-    @Published var coord: NMGLatLng = NMGLatLng(lat: 0, lng: 0)
+    @Published var coord: NMGLatLng = NMGLatLng(lat: 0, lng: 0) // 현재 위치
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
+    @Published var currentScreenCoord: NMGLatLng = NMGLatLng(lat: 0, lng: 0) // 현재 위치
+    @Published var isShowingZoomlevelGuide: Bool = false // 줌 레벨
+    @Published var zoomlevelGuide: Double = 10 // 줌 레벨
     
     private override init() {
         super.init()
         
-        view.showZoomControls = true
+        view.showZoomControls = false
         view.mapView.positionMode = .direction
         view.mapView.isNightModeEnabled = true
+        view.showScaleBar = false
         // MARK: - 줌 레벨 제한
         view.mapView.zoomLevel = 15 // 기본 카메라 줌 레벨
-        view.mapView.minZoomLevel = 10 // 최소 줌 레벨
+        view.mapView.minZoomLevel = 12 // 최소 줌 레벨
         view.mapView.maxZoomLevel = 17 // 최대 줌 레벨
         // MARK: - 현 위치 추적 버튼
         view.showLocationButton = false
@@ -51,6 +54,9 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         
         // MARK: - 지도 터치 시 발생하는 touchDelegate
         view.mapView.touchDelegate = self
+        
+        isShowingLocationPermissionAlert = false
+        
     }
     
     deinit {
@@ -79,8 +85,14 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
             print("Your location is restricted likely due to parental controls.")
+            //현재위치로 좌표 설정
+            coord = NMGLatLng(lat: 37.49802240010302, lng: 127.0278532389088)
+            fetchDefaultLocation()
         case .denied:
             print("You have denied this app location permission. Go into setting to change it.")
+            //현재위치로 좌표 설정
+            coord = NMGLatLng(lat: 37.49802240010302, lng: 127.0278532389088)
+            fetchDefaultLocation()
         case .authorizedAlways, .authorizedWhenInUse:
             print("Success")
             //현재위치로 좌표 설정
@@ -105,24 +117,29 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     
     func makeMarkers() {
         for shopMarker in clothingBinStore.clothingBinArray {
-            let marker = NMFMarker()
             
-            marker.position = shopMarker.coord
-            marker.captionRequestedWidth = 100 // 마커 캡션 너비 지정
-            marker.captionText = shopMarker.info
-            marker.captionMinZoom = 10
-            marker.captionMaxZoom = 17
-            marker.iconImage = NMFOverlayImage(name: "placeholder")
-            marker.width = CGFloat(40)
-            marker.height = CGFloat(40)
+            DispatchQueue.global(qos: .default).async {
+                let marker = NMFMarker()
+                
+                marker.position = shopMarker.coord
+                marker.captionRequestedWidth = 100 // 마커 캡션 너비 지정
+                marker.captionText = shopMarker.info
+                marker.captionMinZoom = 10
+                marker.captionMaxZoom = 17
+                marker.iconImage = NMFOverlayImage(name: "placeholder")
+                marker.width = CGFloat(40)
+                marker.height = CGFloat(40)
+                
+                self.markers.append(marker)
+            }
             
-            markers.append(marker)
+            DispatchQueue.main.async {
+                for marker in self.markers {
+                    marker.mapView = self.view.mapView
+                }
+            }
+            markerTapped()
         }
-        
-        for marker in markers {
-            marker.mapView = view.mapView
-        }
-        markerTapped()
     }
     
     func makeMarkers(by bins: [ClothingBin]) {
@@ -132,13 +149,10 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
             marker.position = bin.coord
             marker.captionRequestedWidth = 100 // 마커 캡션 너비 지정
             marker.captionText = bin.address
-            
-//            marker. = bin.address
-            marker.captionMinZoom = 10
-            marker.captionMaxZoom = 17
-//            marker.iconImage = NMFOverlayImage(name: "placeholder")
-//            marker.width = CGFloat(40)
-//            marker.height = CGFloat(40) 
+            marker.captionMinZoom = 15
+            marker.iconImage = NMFOverlayImage(name: "placeholderGreen")
+            marker.width = CGFloat(35)
+            marker.height = CGFloat(35)
             
             markers.append(marker)
         }
@@ -149,26 +163,12 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         markerTapped()
     }
     
-    //    func makeBookMarkedMarkers() {
-    //        for bookMarkedShop in filterUserShopData() {
-    //            let marker = NMFMarker()
-    //            marker.position = NMGLatLng(lat: bookMarkedShop.location.latitude, lng: bookMarkedShop.location.longitude)
-    //            marker.captionRequestedWidth = 100 // 마커 캡션 너비 지정
-    //            marker.captionText = bookMarkedShop.shopName
-    //            marker.captionMinZoom = 10
-    //            marker.captionMaxZoom = 17
-    //            marker.iconImage = NMFOverlayImage(name: bookMarkedShop.isRegister ? "MapMarker.fill" : "MapMarker")
-    //            marker.width = CGFloat(NMF_MARKER_SIZE_AUTO)
-    //            marker.height = CGFloat(NMF_MARKER_SIZE_AUTO)
-    //
-    //            bookMarkedMarkers.append(marker)
-    //        }
-    //
-    //        for marker in bookMarkedMarkers {
-    //            marker.mapView = view.mapView
-    //        }
-    //        markerTapped()
-    //    }
+    func removeMarkers() {
+        for marker in markers {
+            marker.mapView = nil
+        }
+        markers.removeAll()
+    }
     
     //유저의 위치 받아오기
     func fetchUserLocation() {
@@ -184,53 +184,32 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
             locationOverlay.location = NMGLatLng(lat: lat ?? 0.0, lng: lng ?? 0.0)
             locationOverlay.hidden = false
             
-            // MARK: - 내 주변 5km 반경 overlay 표시
-            let circle = NMFCircleOverlay()
-            circle.center = NMGLatLng(lat: lat ?? 0.0, lng: lng ?? 0.0)
-            circle.radius = 5000
-            circle.mapView = nil
-            
             view.mapView.moveCamera(cameraUpdate)
         }
     }
     
+    //위치권한 비허용시
+    func fetchDefaultLocation() {
+        self.moveCameraPosition()
+    }
+    
     // MARK: - Mark 터치 시 이벤트 발생
     func markerTapped() {
-        if !isBookMarkTapped {
-            print(markers)
-            for marker in markers {
-                marker.touchHandler = { [self] (overlay) -> Bool in
-                    let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: marker.position.lat, lng: marker.position.lng))
-                    cameraUpdate.animation = .fly
-                    cameraUpdate.animationDuration = 1
-                    self.view.mapView.moveCamera(cameraUpdate)
-                    self.showMarkerDetailView = true
-                    self.currentShopId = marker.captionText
-                    print("showMarkerDetailView : \(self.showMarkerDetailView)")
-                    //print(currentShopId)
-                    
-                    return true
-                }
-                marker.mapView = view.mapView
+        for marker in markers {
+            marker.touchHandler = { [self] (overlay) -> Bool in
+                let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: marker.position.lat, lng: marker.position.lng))
+                cameraUpdate.animation = .fly
+                cameraUpdate.animationDuration = 1
+                self.view.mapView.moveCamera(cameraUpdate)
+                self.showMarkerDetailView = true
+                self.currentMarkerAddress = marker.captionText
+                print("showMarkerDetailView : \(self.showMarkerDetailView)")
+                print(currentMarkerAddress)
+                marker.zIndex = 1
+                self.isShowingBinDetailView = true
+                return true
             }
-        } else {
-            print(bookMarkedMarkers)
-            for marker in bookMarkedMarkers {
-                marker.touchHandler = { [self] (overlay) -> Bool in
-                    let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: marker.position.lat, lng: marker.position.lng))
-                    cameraUpdate.animation = .fly
-                    cameraUpdate.animationDuration = 1
-                    self.view.mapView.moveCamera(cameraUpdate)
-                    
-                    self.showMarkerDetailView = true
-                    self.currentShopId = marker.captionText
-                    print("showMarkerDetailView : \(self.showMarkerDetailView)")
-                    //print(currentShopId)
-                    
-                    return true
-                }
-                marker.mapView = view.mapView
-            }
+            marker.mapView = view.mapView
         }
     }
     
@@ -245,8 +224,65 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     // MARK: - 지도 터치에 이용되는 Delegate
     /// 지도 터치 시 MarkerDetailView 창 닫기
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
-        print("Map Tapped")
         showMarkerDetailView = false
     }
     
+    // MARK: - 지도 중심 위치 확인에 이용되는 Delegate
+    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
+        currentScreenCoord = mapView.cameraPosition.target
+        if view.mapView.zoomLevel < 14.5 {
+            changemarkers()
+        }
+        else {
+            changeCloseMarkers()
+        }
+        
+    }
+    
+    func changemarkers() {
+        for marker in self.markers {
+            marker.iconImage = NMFOverlayImage(name: "Ellipse 2")
+            marker.width = CGFloat(12)
+            marker.height = CGFloat(12)
+
+        }
+    }
+    func changeCloseMarkers() {
+        for marker in self.markers {
+            marker.iconImage = NMFOverlayImage(name: "placeholderGreen")
+            marker.width = CGFloat(35)
+            marker.height = CGFloat(35)
+        }
+    }
+    
+    func moveCameraToCenter() {
+        let markers = self.markers
+        
+        guard !markers.isEmpty else { return }
+            
+            var totalLat: Double = 0.0
+            var totalLng: Double = 0.0
+            var weightSum: Double = 0.0
+            
+            for marker in markers {
+                let position = marker.position
+                
+                let weight = pow(2, -Double(markers.count))
+                
+                totalLat += position.lat * weight
+                totalLng += position.lng * weight
+                weightSum += weight
+            }
+            
+            let centerLatitude = totalLat / weightSum
+            let centerLongitude = totalLng / weightSum
+        DispatchQueue.main.async {
+            self.view.mapView.zoomLevel = 12
+            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: centerLatitude, lng: centerLongitude))
+            cameraUpdate.animation = .fly
+            cameraUpdate.animationDuration = 1
+            
+            self.view.mapView.moveCamera(cameraUpdate)
+        }
+    }
 }
