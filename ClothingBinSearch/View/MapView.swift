@@ -28,6 +28,7 @@ struct MapView: View {
                         .padding(8)
                         .background(.white)
                         .cornerRadius(20)
+                        .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                 }
                 .position(x:UIScreen.main.bounds.width - 34, y: 32)
             }
@@ -47,7 +48,7 @@ struct MapView: View {
                         .background(
                             Rectangle()
                                 .fill(.white)
-                                .cornerRadius(20)
+                                .cornerRadius(20)                .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                         )
                         .padding()
                     
@@ -56,7 +57,6 @@ struct MapView: View {
                 
             }
             Button {
-                // 지역선택 뷰 올라오게
                 isShowingRegionSelectionView.toggle()
             } label: {
                 Text("지역선택")
@@ -67,6 +67,7 @@ struct MapView: View {
                             .fill(.white)
                             .frame(width: UIScreen.main.bounds.width - 21, height: 45)
                             .cornerRadius(10)
+                            .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                     )
                     .foregroundColor(.black)
                     .padding()
@@ -91,30 +92,58 @@ struct MapView: View {
                 }
                 .transition(.move(edge: .bottom))
             }
+            //MARK: - ZoomLevel이 작은 경우 안내창
             if isShowingZoomlevelGuide && Coordinator.shared.view.mapView.zoomLevel < 13 {
                 ZoomLevelGuideView()
                     .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 200)
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
                             isShowingZoomlevelGuide = false
-                            print("\(isShowingZoomlevelGuide)")
                         }
-                        print("zoomLevel < 13")
                     }
             }
+            //MARK: - 검색된 의류수거함이 없는 경우 안내창
+            if coordinator.isShowingMarkerEmptyGuiedView {
+                MarkerEmptyGuiedView()
+                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 200)
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+                            coordinator.isShowingMarkerEmptyGuiedView = false
+                            print("isShowingMarkerEmptyGuiedView:\(coordinator.isShowingMarkerEmptyGuiedView)")
+                        }
+                    }
+            }
+            //MARK: - 의류수거함 아이콘 클릭시 상세정보 보기
             if coordinator.isShowingBinDetailView {
                 BinDetailView(screenWidth: (UIScreen.main.bounds.width), isShowingBinDetailView: $coordinator.isShowingBinDetailView, currentMarkerAddress: $coordinator.currentMarkerAddress)
                     .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 150)
-                
             }
         }
+        .alert(isPresented: $coordinator.isShowingLocationPermissionAlert) {
+                    Alert(
+                        title: Text("위치 권한 허용"),
+                        message: Text("설정>의류수거함 검색 에서 위치 서비스를 허용하시면 현재위치 의류수거함 정보를 보실 수 있습니다."),
+                        primaryButton: .default(Text("설정하기"), action: openSettings),
+                        secondaryButton: .cancel()
+                    )
+                }
         .zIndex(1)
         .onAppear{
             Coordinator.shared.checkIfLocationServicesIsEnabled()
             Coordinator.shared.moveCameraPosition()
             Coordinator.shared.makeMarkers()
+            print("coordinator.showingLocationPermissionAlert:\(coordinator.isShowingLocationPermissionAlert)")
         }
     }
+    
+    func openSettings() {
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            
+            if UIApplication.shared.canOpenURL(settingsURL) {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        coordinator.isShowingLocationPermissionAlert = false
+        }
     
 }
 

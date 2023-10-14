@@ -1,16 +1,16 @@
 //
-//  ZoomLevelGuideView.swift
+//  MarkerEmptyGuiedView.swift
 //  ClothingBinSearch
 //
-//  Created by Lyla on 2023/09/30.
+//  Created by Lyla on 2023/10/12.
 //
 
 import SwiftUI
 
-struct ZoomLevelGuideView: View {
+struct MarkerEmptyGuiedView: View {
     var body: some View {
         ZStack{
-            Text("지도를 확대해주세요.")
+            Text("현재 지도상에 의류수거함이 없습니다.")
                 .foregroundColor(.white)
                 .font(.body)
                 .frame(width:300)
@@ -28,8 +28,8 @@ struct ZoomLevelGuideView: View {
     }
 }
 
-struct ZoomLevelGuideView_Previews: PreviewProvider {
+struct MarkerEmptyGuiedView_Previews: PreviewProvider {
     static var previews: some View {
-        ZoomLevelGuideView()
+        MarkerEmptyGuiedView()
     }
 }

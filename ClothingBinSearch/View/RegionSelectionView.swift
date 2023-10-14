@@ -39,7 +39,7 @@ struct RegionSelectionView: View {
                         .font(.headline)
                         .foregroundColor(.black)
                         .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading) // 왼쪽 정렬을 위해 alignment 추가
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 Divider()
             }
