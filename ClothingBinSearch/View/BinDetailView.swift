@@ -12,7 +12,7 @@ struct BinDetailView: View {
     @Binding var isShowingBinDetailView: Bool
     @Binding var currentMarkerAddress: String
     @State private var copiedText = ""
-
+    @State var isShowingNaverMapAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -74,8 +74,16 @@ struct BinDetailView: View {
             .padding()
             Spacer()
         }
+        .alert("네이버 지도가 설치되어 있지 않습니다.", isPresented: $isShowingNaverMapAlert) {
+             Button("확인", role: .cancel) {
+             }
+           }
         .frame(width: screenWidth, height: 200)
         .background(.white)
+        
+        
+        
+        
        
         
     }
@@ -100,6 +108,8 @@ struct BinDetailView: View {
                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
                
                rootViewController.present(alert, animated: true, completion:nil)
+        
+        
            }
     
     private func openNaverMapWithSearch(address: String) {
@@ -109,6 +119,7 @@ struct BinDetailView: View {
             if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             } else {
+                isShowingNaverMapAlert.toggle()
                 print("네이버 지도 앱을 열 수 없습니다.")
             }
         }
