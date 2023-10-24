@@ -25,13 +25,32 @@ struct MapView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 22)
-                        .padding(8)
+                        .padding(13)
                         .background(.white)
-                        .cornerRadius(20)
+                        .cornerRadius(30)
                         .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                 }
-                .position(x:UIScreen.main.bounds.width - 34, y: 32)
+                .position(x: 38, y:UIScreen.main.bounds.height - 200)
+                
+               
             }
+//            HStack{
+//                Button {
+//                    Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
+//                } label: {
+//                                        Image(systemName: "questionmark.circle")
+//                        .resizable()
+//                        .foregroundStyle(.gray)
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 22, height: 22)
+//                        
+//                        .padding(8)
+//                        .background(.white)
+//                        .cornerRadius(20)
+//                        .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
+//                }
+//                .position(x:UIScreen.main.bounds.width - 34, y: 32)
+//            }
             HStack{
                 Button {
                     if Coordinator.shared.view.mapView.zoomLevel >= 13 {
