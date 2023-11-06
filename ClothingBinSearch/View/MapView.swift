@@ -7,12 +7,14 @@
 
 import SwiftUI
 import NMapsMap
+import FirebaseAnalytics
 
 struct MapView: View {
-    
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var isShowingZoomlevelGuide: Bool = false
     @State var isShowingRegionSelectionView: Bool = false
+    @State private var uniqueUserID: String = ""
+    @State var analyticsStore: AnalyticsStore = AnalyticsStore()
     
     var body: some View {
         ZStack(alignment:.topTrailing) {
@@ -25,13 +27,32 @@ struct MapView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 22)
-                        .padding(8)
+                        .padding(13)
                         .background(.white)
-                        .cornerRadius(20)
+                        .cornerRadius(30)
                         .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                 }
-                .position(x:UIScreen.main.bounds.width - 34, y: 32)
+                .position(x: 38, y:UIScreen.main.bounds.height - 200)
+                
+               
             }
+//            HStack{
+//                Button {
+//                    Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
+//                } label: {
+//                                        Image(systemName: "questionmark.circle")
+//                        .resizable()
+//                        .foregroundStyle(.gray)
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 22, height: 22)
+//                        
+//                        .padding(8)
+//                        .background(.white)
+//                        .cornerRadius(20)
+//                        .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
+//                }
+//                .position(x:UIScreen.main.bounds.width - 34, y: 32)
+//            }
             HStack{
                 Button {
                     if Coordinator.shared.view.mapView.zoomLevel >= 13 {
@@ -83,7 +104,7 @@ struct MapView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    RegionSelectionView(isShowingModal: $isShowingRegionSelectionView)
+                    RegionSelectionView(isShowingModal: $isShowingRegionSelectionView, analyticsStore: $analyticsStore)
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.horizontal)
@@ -133,6 +154,8 @@ struct MapView: View {
             Coordinator.shared.moveCameraPosition()
             Coordinator.shared.makeMarkers()
             print("coordinator.showingLocationPermissionAlert:\(coordinator.isShowingLocationPermissionAlert)")
+            
+            analyticsStore.logEvent(itemName: "init-mapView", contentType: " ContentType")
         }
     }
     
