@@ -29,6 +29,4 @@ class AnalyticsStore {
             AnalyticsParameterContentType: contentType
         ])
     }
-    
-    
 }
