@@ -7,12 +7,14 @@
 
 import SwiftUI
 import NMapsMap
+import FirebaseAnalytics
 
 struct MapView: View {
-    
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var isShowingZoomlevelGuide: Bool = false
     @State var isShowingRegionSelectionView: Bool = false
+    @State private var uniqueUserID: String = ""
+    @State var analyticsStore: AnalyticsStore = AnalyticsStore()
     
     var body: some View {
         ZStack(alignment:.topTrailing) {
@@ -102,7 +104,7 @@ struct MapView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    RegionSelectionView(isShowingModal: $isShowingRegionSelectionView)
+                    RegionSelectionView(isShowingModal: $isShowingRegionSelectionView, analyticsStore: $analyticsStore)
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.horizontal)
@@ -152,6 +154,8 @@ struct MapView: View {
             Coordinator.shared.moveCameraPosition()
             Coordinator.shared.makeMarkers()
             print("coordinator.showingLocationPermissionAlert:\(coordinator.isShowingLocationPermissionAlert)")
+            
+            analyticsStore.logEvent(itemName: "init-mapView", contentType: " ContentType")
         }
     }
     

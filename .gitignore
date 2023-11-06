@@ -100,3 +100,4 @@ amplify/cli.json
 # Public 전환 시 Private 데이터를 포함하지 않도록 함
 /**/*.plist
 
+GoogleService-Info.plist
