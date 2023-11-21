@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MarkerEmptyGuiedView: View {
+struct MarkerEmptyGuideView: View {
     var body: some View {
         ZStack{
             Text("현재 지도상에 의류수거함이 없습니다.")
@@ -30,6 +30,6 @@ struct MarkerEmptyGuiedView: View {
 
 struct MarkerEmptyGuiedView_Previews: PreviewProvider {
     static var previews: some View {
-        MarkerEmptyGuiedView()
+        MarkerEmptyGuideView()
     }
 }

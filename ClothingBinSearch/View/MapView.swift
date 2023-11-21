@@ -125,7 +125,7 @@ struct MapView: View {
             }
             //MARK: - 검색된 의류수거함이 없는 경우 안내창
             if coordinator.isShowingMarkerEmptyGuiedView {
-                MarkerEmptyGuiedView()
+                MarkerEmptyGuideView()
                     .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 200)
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
