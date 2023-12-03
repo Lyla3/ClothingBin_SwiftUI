@@ -7,7 +7,7 @@
 
 import SwiftUI
 import NMapsMap
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 struct MapView: View {
     @StateObject var coordinator: Coordinator = Coordinator.shared
@@ -155,7 +155,7 @@ struct MapView: View {
             Coordinator.shared.makeMarkers()
             print("coordinator.showingLocationPermissionAlert:\(coordinator.isShowingLocationPermissionAlert)")
             
-            analyticsStore.logEvent(itemName: "init-mapView", contentType: " ContentType")
+//            analyticsStore.logEvent(itemName: "init-mapView", contentType: " ContentType")
         }
     }
     

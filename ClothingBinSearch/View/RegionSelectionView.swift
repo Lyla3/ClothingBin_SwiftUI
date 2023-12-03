@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 
 struct RegionSelectionView: View {
@@ -48,7 +48,7 @@ struct RegionSelectionView: View {
             }
         }
         .onAppear {
-            analyticsStore.logEvent(itemName: "RegionView", contentType: "")
+//            analyticsStore.logEvent(itemName: "RegionView", contentType: "")
         }
     }
 }
