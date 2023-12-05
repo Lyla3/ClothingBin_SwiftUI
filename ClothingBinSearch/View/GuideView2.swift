@@ -79,7 +79,6 @@ struct GuideView2: View {
                         index = index < guideDataSet.images.count - 1 ? index + 1 : 0
                         // selectedNum 값은 images 배열의 element 값
                         
-                        
                     }
                 }
             })
