@@ -8,10 +8,10 @@
   - UIKit -> SwiftUI로 리팩토링 완료
   - MVVM
   - 개발 환경
-    - iOS: Swift5, Xcode 14.3, SwiftUI
+    - iOS: Swift5, Xcode 15.0, SwiftUI
   - 라이브러리
     - NaverMaps API (REST API, Maps API)
-    - Deployment Target : iOS 15.3
+    - Deployment Target : iOS 15.0
 
 
 ## 기능 안내
