@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		501138EFD24F8D9A231932B3 /* Pods_ClothingBinSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */; };
+		630A3C382B13769D00BDE978 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3C372B13769D00BDE978 /* Modifiers.swift */; };
+		630A3C3A2B13773E00BDE978 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3C392B13773E00BDE978 /* Color+.swift */; };
+		6378B4E52B0CD6E500D69035 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E42B0CD6E500D69035 /* Constant.swift */; };
+		6378B4E72B0CD7AD00D69035 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E62B0CD7AD00D69035 /* GuideView.swift */; };
+		6378B4E92B0CE63B00D69035 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E82B0CE63B00D69035 /* CGFloat+.swift */; };
+		6378B4ED2B11DC9200D69035 /* GuideImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4EC2B11DC9200D69035 /* GuideImageData.swift */; };
 		63BB09C82AC0637D002CCE4E /* ClothingBinSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09C72AC0637D002CCE4E /* ClothingBinSearchApp.swift */; };
 		63BB09CA2AC0637D002CCE4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09C92AC0637D002CCE4E /* ContentView.swift */; };
 		63BB09CC2AC0637E002CCE4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09CB2AC0637E002CCE4E /* Assets.xcassets */; };
@@ -29,15 +35,27 @@
 		63BB0A002AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09F72AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv */; };
 		63BB0A012AC33DCD002CCE4E /* Seoul_gwanak.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63BB09F82AC33DCD002CCE4E /* Seoul_gwanak.csv */; };
 		63BB0A042AC33E0F002CCE4E /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB0A032AC33E0F002CCE4E /* Region.swift */; };
+		63BF3DB82AF91B8C00802778 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 63BF3DB72AF91B8C00802778 /* FirebaseAnalytics */; };
+		63BF3DBA2AF91B8C00802778 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 63BF3DB92AF91B8C00802778 /* FirebaseAnalyticsOnDeviceConversion */; };
+		63BF3DBC2AF91B8C00802778 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BF3DBB2AF91B8C00802778 /* FirebaseAnalyticsSwift */; };
+		63BF3DBE2AF91B8C00802778 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 63BF3DBD2AF91B8C00802778 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		63BF3DC02AF91B8C00802778 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 63BF3DBF2AF91B8C00802778 /* FirebaseAppCheck */; };
+		63BF3DC22AF91D3200802778 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63BF3DC12AF91D3200802778 /* GoogleService-Info.plist */; };
+		63BF3DC42AF92BC600802778 /* AnalyticsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */; };
 		63C7EB6F2AD430160002080D /* BinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7EB6E2AD430160002080D /* BinDetailView.swift */; };
-		63C7EB712AD45F110002080D /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7EB702AD45F110002080D /* Color+.swift */; };
 		63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */; };
 		63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49082AC9F09300C782EF /* RegionSelectionView.swift */; };
-		63FE1BA82AD78B6F00369392 /* MarkerEmptyGuiedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE1BA72AD78B6F00369392 /* MarkerEmptyGuiedView.swift */; };
+		63FE1BA82AD78B6F00369392 /* MarkerEmptyGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0904CC62F02D7C08451E30CA /* Pods-ClothingBinSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingBinSearch.debug.xcconfig"; path = "Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		630A3C372B13769D00BDE978 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		630A3C392B13773E00BDE978 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		6378B4E42B0CD6E500D69035 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6378B4E62B0CD7AD00D69035 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		6378B4E82B0CE63B00D69035 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
+		6378B4EC2B11DC9200D69035 /* GuideImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideImageData.swift; sourceTree = "<group>"; };
 		63BB09C42AC0637D002CCE4E /* ClothingBinSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothingBinSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BB09C72AC0637D002CCE4E /* ClothingBinSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingBinSearchApp.swift; sourceTree = "<group>"; };
 		63BB09C92AC0637D002CCE4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,11 +79,12 @@
 		63BB09F72AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Yeoungdeungpo.csv; sourceTree = "<group>"; };
 		63BB09F82AC33DCD002CCE4E /* Seoul_gwanak.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_gwanak.csv; sourceTree = "<group>"; };
 		63BB0A032AC33E0F002CCE4E /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		63BF3DC12AF91D3200802778 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsStore.swift; sourceTree = "<group>"; };
 		63C7EB6E2AD430160002080D /* BinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinDetailView.swift; sourceTree = "<group>"; };
-		63C7EB702AD45F110002080D /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomLevelGuideView.swift; sourceTree = "<group>"; };
 		63CD49082AC9F09300C782EF /* RegionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionView.swift; sourceTree = "<group>"; };
-		63FE1BA72AD78B6F00369392 /* MarkerEmptyGuiedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerEmptyGuiedView.swift; sourceTree = "<group>"; };
+		63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerEmptyGuideView.swift; sourceTree = "<group>"; };
 		691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingBinSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A556AF0F0A581BD5ACF95B0 /* Pods-ClothingBinSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingBinSearch.release.xcconfig"; path = "Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +94,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BF3DBC2AF91B8C00802778 /* FirebaseAnalyticsSwift in Frameworks */,
+				63BF3DBE2AF91B8C00802778 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				63BF3DB82AF91B8C00802778 /* FirebaseAnalytics in Frameworks */,
+				63BF3DBA2AF91B8C00802778 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				63BF3DC02AF91B8C00802778 /* FirebaseAppCheck in Frameworks */,
 				501138EFD24F8D9A231932B3 /* Pods_ClothingBinSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,10 +106,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		630A3C362B13767E00BDE978 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				630A3C372B13769D00BDE978 /* Modifiers.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		63BB09BB2AC0637D002CCE4E = {
 			isa = PBXGroup;
 			children = (
 				63BB09DA2AC0695F002CCE4E /* .gitignore */,
+				63BF3DC12AF91D3200802778 /* GoogleService-Info.plist */,
 				63BB09C72AC0637D002CCE4E /* ClothingBinSearchApp.swift */,
 				63BB09C62AC0637D002CCE4E /* ClothingBinSearch */,
 				63BB09C52AC0637D002CCE4E /* Products */,
@@ -105,7 +138,8 @@
 		63BB09C62AC0637D002CCE4E /* ClothingBinSearch */ = {
 			isa = PBXGroup;
 			children = (
-				63BB0A022AC33DF1002CCE4E /* New Group */,
+				630A3C362B13767E00BDE978 /* Commons */,
+				63BB0A022AC33DF1002CCE4E /* Extension */,
 				63BB09EF2AC33D83002CCE4E /* ClotingBinData */,
 				63BB09DC2AC06B08002CCE4E /* Info.plist */,
 				63BB09D92AC063AE002CCE4E /* Coordinator */,
@@ -135,7 +169,8 @@
 				63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */,
 				63CD49082AC9F09300C782EF /* RegionSelectionView.swift */,
 				63C7EB6E2AD430160002080D /* BinDetailView.swift */,
-				63FE1BA72AD78B6F00369392 /* MarkerEmptyGuiedView.swift */,
+				63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */,
+				6378B4E62B0CD7AD00D69035 /* GuideView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				63BB09E52AC07B18002CCE4E /* ClothingBInStore.swift */,
+				63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -161,7 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				63BB09E72AC07FFB002CCE4E /* ButtonType.swift */,
-				63C7EB702AD45F110002080D /* Color+.swift */,
+				6378B4E42B0CD6E500D69035 /* Constant.swift */,
+				6378B4EC2B11DC9200D69035 /* GuideImageData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -191,11 +228,13 @@
 			path = ClotingBinData;
 			sourceTree = "<group>";
 		};
-		63BB0A022AC33DF1002CCE4E /* New Group */ = {
+		63BB0A022AC33DF1002CCE4E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				6378B4E82B0CE63B00D69035 /* CGFloat+.swift */,
+				630A3C392B13773E00BDE978 /* Color+.swift */,
 			);
-			path = "New Group";
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		7909AD6E54B1FCE694BAA99F /* Frameworks */ = {
@@ -233,6 +272,13 @@
 			dependencies = (
 			);
 			name = ClothingBinSearch;
+			packageProductDependencies = (
+				63BF3DB72AF91B8C00802778 /* FirebaseAnalytics */,
+				63BF3DB92AF91B8C00802778 /* FirebaseAnalyticsOnDeviceConversion */,
+				63BF3DBB2AF91B8C00802778 /* FirebaseAnalyticsSwift */,
+				63BF3DBD2AF91B8C00802778 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				63BF3DBF2AF91B8C00802778 /* FirebaseAppCheck */,
+			);
 			productName = ClothingBinSearch;
 			productReference = 63BB09C42AC0637D002CCE4E /* ClothingBinSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +307,9 @@
 				Base,
 			);
 			mainGroup = 63BB09BB2AC0637D002CCE4E;
+			packageReferences = (
+				63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 63BB09C52AC0637D002CCE4E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -275,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BF3DC22AF91D3200802778 /* GoogleService-Info.plist in Resources */,
 				63BB09CF2AC0637E002CCE4E /* Preview Assets.xcassets in Resources */,
 				63BB09FF2AC33DCD002CCE4E /* Seoul_Seodaemun.csv in Resources */,
 				63BB0A012AC33DCD002CCE4E /* Seoul_gwanak.csv in Resources */,
@@ -341,16 +391,22 @@
 			files = (
 				63BB0A042AC33E0F002CCE4E /* Region.swift in Sources */,
 				63BB09E62AC07B18002CCE4E /* ClothingBInStore.swift in Sources */,
+				6378B4ED2B11DC9200D69035 /* GuideImageData.swift in Sources */,
 				63BB09E82AC07FFB002CCE4E /* ButtonType.swift in Sources */,
+				6378B4E52B0CD6E500D69035 /* Constant.swift in Sources */,
+				6378B4E92B0CE63B00D69035 /* CGFloat+.swift in Sources */,
 				63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */,
 				63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */,
 				63C7EB6F2AD430160002080D /* BinDetailView.swift in Sources */,
 				63BB09CA2AC0637D002CCE4E /* ContentView.swift in Sources */,
 				63BB09E42AC0787B002CCE4E /* ClothingBin.swift in Sources */,
 				63BB09E22AC077E7002CCE4E /* NaverMap.swift in Sources */,
-				63FE1BA82AD78B6F00369392 /* MarkerEmptyGuiedView.swift in Sources */,
+				63FE1BA82AD78B6F00369392 /* MarkerEmptyGuideView.swift in Sources */,
 				63BB09E02AC077D4002CCE4E /* MapView.swift in Sources */,
-				63C7EB712AD45F110002080D /* Color+.swift in Sources */,
+				6378B4E72B0CD7AD00D69035 /* GuideView.swift in Sources */,
+				630A3C382B13769D00BDE978 /* Modifiers.swift in Sources */,
+				63BF3DC42AF92BC600802778 /* AnalyticsStore.swift in Sources */,
+				630A3C3A2B13773E00BDE978 /* Color+.swift in Sources */,
 				63BB09C82AC0637D002CCE4E /* ClothingBinSearchApp.swift in Sources */,
 				63BB09DE2AC06E43002CCE4E /* Coordinator.swift in Sources */,
 			);
@@ -409,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -463,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -492,11 +548,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sumsum.daummap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -527,11 +584,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sumsum.daummap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -565,6 +623,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63BF3DB72AF91B8C00802778 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		63BF3DB92AF91B8C00802778 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		63BF3DBB2AF91B8C00802778 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		63BF3DBD2AF91B8C00802778 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		63BF3DBF2AF91B8C00802778 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 63BB09BC2AC0637D002CCE4E /* Project object */;
 }

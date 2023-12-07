@@ -12,7 +12,9 @@ struct BinDetailView: View {
     @Binding var isShowingBinDetailView: Bool
     @Binding var currentMarkerAddress: String
     @State private var copiedText = ""
-
+    
+    @State var isShowingNMapAlert: Bool = false
+    @State var isShowingAppleMapAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -45,7 +47,7 @@ struct BinDetailView: View {
                     Text("\(currentMarkerAddress)")
                         .foregroundColor(.black)
                 }
-
+                
                 Button {
                     copyToClipboard(text: "\(currentMarkerAddress)")
                 } label: {
@@ -55,63 +57,99 @@ struct BinDetailView: View {
                         .frame(height: 14)
                         .foregroundColor(.middleGrayColor)
                 }
-                                Spacer()
-
+                Spacer()
+                
             }
             .padding(.horizontal,10)
             HStack{
+                
                 Button(action: {
-                               openNaverMapWithSearch(address: currentMarkerAddress)
-                           }) {
-                               Text("네이버 지도로 보기")
-                                   .font(.footnote)
-                                   .padding(10)
-                                   .background(Color.lightGrayColor)
-                                   .foregroundColor(.black)
-                                   .cornerRadius(10)
-                           }
+                    openAppleMapWithSearch(address: currentMarkerAddress)
+                }) {
+                    Text("애플 지도로 보기")
+                        .font(.footnote)
+                        .padding(10)
+                        .background(Color.lightGrayColor)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
+                }
+                Button(action: {
+                    openNaverMapWithSearch(address: currentMarkerAddress)
+                }) {
+                    Text("네이버 지도로 보기")
+                        .font(.footnote)
+                        .padding(10)
+                        .background(Color.lightGrayColor)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
+                }
             }
             .padding()
             Spacer()
         }
+        .alert("네이버 지도가 설치되어 있지 않습니다.", isPresented: $isShowingNMapAlert) {
+            Button("확인", role: .cancel) {
+            }
+        }
+        .alert("애플 지도(Apple Maps)가 설치되어 있지 않습니다.", isPresented: $isShowingAppleMapAlert) {
+            Button("확인", role: .cancel) {
+            }
+        }
         .frame(width: screenWidth, height: 200)
         .background(.white)
-       
-        
     }
     
     private func copyToClipboard(text: String) {
-           let pasteboard = UIPasteboard.general
-           pasteboard.string = text
-               copiedText = text
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = text
+        copiedText = text
         if copiedText != "" {
             showAlert()
         }
-       }
+    }
     
     private func showAlert() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                     let rootViewController = windowScene.windows.first?.rootViewController else {
-                   return
-               }
-               
-               let alert = UIAlertController(title: "복사 완료", message: "\(copiedText)\n클립보드에 복사되었습니다.", preferredStyle: .alert)
-               
-               alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-               
-               rootViewController.present(alert, animated: true, completion:nil)
-           }
-    
-    private func openNaverMapWithSearch(address: String) {
-            let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-            let urlString = "nmap://search?query=\(encodedAddress)"
-            
-            if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                print("네이버 지도 앱을 열 수 없습니다.")
-            }
+              let rootViewController = windowScene.windows.first?.rootViewController else {
+            return
         }
+        
+        let alert = UIAlertController(title: "복사 완료", message: "\(copiedText)\n클립보드에 복사되었습니다.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        
+        rootViewController.present(alert, animated: true, completion:nil)
+    }
+    
+    //MARK: - 네이버 지도 길찾기
+    private func openNaverMapWithSearch(address: String) {
+        let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlString = "nmap://search?query=\(encodedAddress)"
+        
+        if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            isShowingNMapAlert.toggle()
+            print("네이버 지도 앱을 열 수 없습니다.")
+        }
+    }
+    
+    //MARK: - 애플 지도 길찾기
+    private func openAppleMapWithSearch(address: String) {
+        let urlStr = "maps://?daddr=\(address)&dirfgl=d"
+
+        guard let encodedStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        guard let url = URL(string: encodedStr) else { return }
+        
+        guard let appStoreUrl = URL(string: "itms-apps://itunes.apple.com/app/id915056765") else { return }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.open(appStoreUrl)
+            isShowingAppleMapAlert.toggle()
+        }
+    }
 }
 
 struct BinDetailView_Previews: PreviewProvider {

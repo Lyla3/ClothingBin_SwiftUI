@@ -9,10 +9,12 @@ import SwiftUI
 import NMapsMap
 
 struct MapView: View {
-    
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var isShowingZoomlevelGuide: Bool = false
     @State var isShowingRegionSelectionView: Bool = false
+    @State var isShowingGuideView: Bool = false
+    @State private var uniqueUserID: String = ""
+    @State var analyticsStore: AnalyticsStore = AnalyticsStore()
     
     var body: some View {
         ZStack(alignment:.topTrailing) {
@@ -25,13 +27,48 @@ struct MapView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 22)
-                        .padding(8)
+                        .padding(13)
                         .background(.white)
-                        .cornerRadius(20)
+                        .cornerRadius(30)
                         .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
                 }
-                .position(x:UIScreen.main.bounds.width - 34, y: 32)
+                .position(x: 38, y:UIScreen.main.bounds.height - 200)
+                
+               
             }
+            Button {
+                // GuideView 띄우기
+                isShowingGuideView = true
+            } label: {
+                Image(systemName: "questionmark")
+//                Image("crosshair")
+                    .resizable()
+//                    .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 14,height: 14)
+                    .padding(13)
+                    .background(.white)
+                    .cornerRadius(90)
+                    .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
+            }
+            .position(x: CGFloat.screenWidth - 35, y:32)
+//            HStack{
+//                Button {
+//                    Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
+//                } label: {
+//                                        Image(systemName: "questionmark.circle")
+//                        .resizable()
+//                        .foregroundStyle(.gray)
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 22, height: 22)
+//                        
+//                        .padding(8)
+//                        .background(.white)
+//                        .cornerRadius(20)
+//                        .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
+//                }
+//                .position(x:UIScreen.main.bounds.width - 34, y: 32)
+//            }
             HStack{
                 Button {
                     if Coordinator.shared.view.mapView.zoomLevel >= 13 {
@@ -75,15 +112,32 @@ struct MapView: View {
             }
             .position(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height - 120)
             
+            
+            if isShowingGuideView {
+                Color.black.opacity(0.4)
+                    .onTapGesture {
+                        isShowingGuideView.toggle()
+                    }
+                    .ignoresSafeArea()
+                VStack {
+                   GuideView(isShowingGuide: $isShowingGuideView)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                        .frame(maxHeight: .infinity)
+                }
+                .transition(.move(edge: .bottom))
+            }
+            
             if isShowingRegionSelectionView {
                 Color.black.opacity(0.4)
                     .onTapGesture {
                         isShowingRegionSelectionView.toggle()
                     }
                     .ignoresSafeArea()
-                
                 VStack {
-                    RegionSelectionView(isShowingModal: $isShowingRegionSelectionView)
+                    RegionSelectionView(isShowingModal: $isShowingRegionSelectionView, analyticsStore: $analyticsStore)
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding(.horizontal)
@@ -104,7 +158,7 @@ struct MapView: View {
             }
             //MARK: - 검색된 의류수거함이 없는 경우 안내창
             if coordinator.isShowingMarkerEmptyGuiedView {
-                MarkerEmptyGuiedView()
+                MarkerEmptyGuideView()
                     .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 200)
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
@@ -133,6 +187,8 @@ struct MapView: View {
             Coordinator.shared.moveCameraPosition()
             Coordinator.shared.makeMarkers()
             print("coordinator.showingLocationPermissionAlert:\(coordinator.isShowingLocationPermissionAlert)")
+            
+//            analyticsStore.logEvent(itemName: "init-mapView", contentType: " ContentType")
         }
     }
     

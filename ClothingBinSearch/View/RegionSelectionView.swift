@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+//import FirebaseAnalytics
+
 
 struct RegionSelectionView: View {
     @Binding var isShowingModal: Bool
+    @Binding var analyticsStore: AnalyticsStore
     
     var body: some View {
         VStack {
@@ -44,12 +47,15 @@ struct RegionSelectionView: View {
                 Divider()
             }
         }
+        .onAppear {
+//            analyticsStore.logEvent(itemName: "RegionView", contentType: "")
+        }
     }
 }
 
 
 struct RegionSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        RegionSelectionView(isShowingModal: .constant(false))
+        RegionSelectionView(isShowingModal: .constant(false), analyticsStore: .constant(AnalyticsStore()))
     }
 }
