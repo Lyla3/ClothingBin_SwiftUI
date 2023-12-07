@@ -37,7 +37,7 @@ struct GuideView: View {
     private let guiedText: [String] = ["의류수거함 검색 가이드","현재위치 검색 버튼입니다.", "터치 1번: 현재 내 위치로 이동\n터치 2번: 내 위치 근처 의류수거함 표시","2. 현재 지도 검색","현재지도의 의류수거함을 검색할 수 있습니다.","3. 지역구별 검색","지역구를 선택해주세요.","선택된 지역구의 의류수거함을 볼 수 있습니다."]
     @State private var selectedImageName: String = ""
     
-    @State var isShowingGuide: Bool = true
+    @Binding var isShowingGuide: Bool 
     @State var isStopedtimer: Bool = false
     
     var body: some View {
@@ -55,17 +55,20 @@ struct GuideView: View {
                     HStack {
                         Text("사용 방법")
                             .font(.title3)
+                            .padding(10)
                     }
                 }
-                .padding(.horizontal,10)
+                .padding(.horizontal, 10)
+                .padding(.top, 10)
                 ZStack(alignment: .bottomTrailing){
                     VStack{
+                        Spacer()
                         HStack{
                             Spacer()
                             Image(guideDataSet.imagesAndTexts[index - 1].image)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: CGFloat.screenHeight*0.7)
+                                .frame(height: CGFloat.screenHeight*0.6)
                             Spacer()
                         }
                         Text("\(guideDataSet.imagesAndTexts[index - 1].text)")
@@ -100,6 +103,7 @@ struct GuideView: View {
                 .buttonStyle(.borderedProminent)
                 .tint(.middleGrayColor)
             }
+            .padding(.bottom,10)
             .onReceive(timer, perform: { _ in
                 withAnimation {
                     // index값을 증가, 아니면 1
@@ -108,7 +112,7 @@ struct GuideView: View {
                     if isStopedtimer {
                         
                     } else {
-                        index = index < guideDataSet.images.count - 1 ? index + 1 : 1
+                        index = index < guideDataSet.images.count ? index + 1 : 1
                         // selectedNum 값은 images 배열의 element 값
                         
                     }
@@ -120,5 +124,5 @@ struct GuideView: View {
 }
 
 #Preview {
-    GuideView()
+    GuideView(isShowingGuide: .constant(true))
 }

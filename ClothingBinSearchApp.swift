@@ -22,7 +22,7 @@ struct ClothingBinSearchApp: App {
 //    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            GuideView()
+            MapView()
         }
     }
 }

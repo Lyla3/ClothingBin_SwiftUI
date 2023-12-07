@@ -7,12 +7,12 @@
 
 import SwiftUI
 import NMapsMap
-//import FirebaseAnalytics
 
 struct MapView: View {
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var isShowingZoomlevelGuide: Bool = false
     @State var isShowingRegionSelectionView: Bool = false
+    @State var isShowingGuideView: Bool = false
     @State private var uniqueUserID: String = ""
     @State var analyticsStore: AnalyticsStore = AnalyticsStore()
     
@@ -36,6 +36,22 @@ struct MapView: View {
                 
                
             }
+            Button {
+                // GuideView 띄우기
+                isShowingGuideView = true
+            } label: {
+                Image(systemName: "questionmark")
+//                Image("crosshair")
+                    .resizable()
+//                    .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 14,height: 14)
+                    .padding(13)
+                    .background(.white)
+                    .cornerRadius(90)
+                    .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
+            }
+            .position(x: CGFloat.screenWidth - 35, y:32)
 //            HStack{
 //                Button {
 //                    Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
@@ -96,13 +112,30 @@ struct MapView: View {
             }
             .position(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height - 120)
             
+            
+            if isShowingGuideView {
+                Color.black.opacity(0.4)
+                    .onTapGesture {
+                        isShowingGuideView.toggle()
+                    }
+                    .ignoresSafeArea()
+                VStack {
+                   GuideView(isShowingGuide: $isShowingGuideView)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                        .frame(maxHeight: .infinity)
+                }
+                .transition(.move(edge: .bottom))
+            }
+            
             if isShowingRegionSelectionView {
                 Color.black.opacity(0.4)
                     .onTapGesture {
                         isShowingRegionSelectionView.toggle()
                     }
                     .ignoresSafeArea()
-                
                 VStack {
                     RegionSelectionView(isShowingModal: $isShowingRegionSelectionView, analyticsStore: $analyticsStore)
                         .background(Color.white)
