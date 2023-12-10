@@ -10,6 +10,7 @@
 		501138EFD24F8D9A231932B3 /* Pods_ClothingBinSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */; };
 		630A3C382B13769D00BDE978 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3C372B13769D00BDE978 /* Modifiers.swift */; };
 		630A3C3A2B13773E00BDE978 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3C392B13773E00BDE978 /* Color+.swift */; };
+		635C68692B2422C2001EB126 /* ReportNoClothingBin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C68682B2422C2001EB126 /* ReportNoClothingBin.swift */; };
 		6378B4E52B0CD6E500D69035 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E42B0CD6E500D69035 /* Constant.swift */; };
 		6378B4E72B0CD7AD00D69035 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E62B0CD7AD00D69035 /* GuideView.swift */; };
 		6378B4E92B0CE63B00D69035 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E82B0CE63B00D69035 /* CGFloat+.swift */; };
@@ -52,6 +53,7 @@
 		0904CC62F02D7C08451E30CA /* Pods-ClothingBinSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingBinSearch.debug.xcconfig"; path = "Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		630A3C372B13769D00BDE978 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		630A3C392B13773E00BDE978 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		635C68682B2422C2001EB126 /* ReportNoClothingBin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNoClothingBin.swift; sourceTree = "<group>"; };
 		6378B4E42B0CD6E500D69035 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		6378B4E62B0CD7AD00D69035 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		6378B4E82B0CE63B00D69035 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				63C7EB6E2AD430160002080D /* BinDetailView.swift */,
 				63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */,
 				6378B4E62B0CD7AD00D69035 /* GuideView.swift */,
+				635C68682B2422C2001EB126 /* ReportNoClothingBin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				630A3C382B13769D00BDE978 /* Modifiers.swift in Sources */,
 				63BF3DC42AF92BC600802778 /* AnalyticsStore.swift in Sources */,
 				630A3C3A2B13773E00BDE978 /* Color+.swift in Sources */,
+				635C68692B2422C2001EB126 /* ReportNoClothingBin.swift in Sources */,
 				63BB09C82AC0637D002CCE4E /* ClothingBinSearchApp.swift in Sources */,
 				63BB09DE2AC06E43002CCE4E /* Coordinator.swift in Sources */,
 			);

@@ -15,12 +15,24 @@ struct BinDetailView: View {
     
     @State var isShowingNMapAlert: Bool = false
     @State var isShowingAppleMapAlert: Bool = false
+    @State var isShowingReportAlert: Bool = false
     
     var body: some View {
         VStack {
             HStack {
                 Text("의류수거함 정보")
                     .bold()
+                Button {
+                    isShowingReportAlert = true
+                } label: {
+                    Image(systemName: "exclamationmark.circle.fill")
+                        .foregroundColor(.black)
+                }
+                .alert("메시지", isPresented: $isShowingReportAlert){
+                    Button("OK", role: .cancel) { 
+                        //
+                    }
+                }
                 Spacer()
                 Button {
                     isShowingBinDetailView = false
