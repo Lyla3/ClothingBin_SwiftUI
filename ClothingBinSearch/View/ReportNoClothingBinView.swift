@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct ReportNoClothingBin: View {
+struct ReportNoClothingBinView: View {
     @Binding var currentSeletedBinAddress: String
+    @State private var buttonValue = false
+
+//       var body: some View {
+//       }
     
     var body: some View {
         VStack(alignment: .leading){
             HStack{
+                ReportBinRadioButton(value: $buttonValue)
+
                 Button {
                     //
                 } label: {
@@ -40,5 +46,5 @@ struct ReportNoClothingBin: View {
 }
 
 #Preview {
-    ReportNoClothingBin(currentSeletedBinAddress: .constant("address"))
+    ReportNoClothingBinView(currentSeletedBinAddress: .constant("address"))
 }

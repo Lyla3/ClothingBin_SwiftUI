@@ -20,7 +20,6 @@ struct ReportBinRadioButton: View {
                     //
                 } label: {
                     Text("취소")
-                    
                 }
                 Spacer()
                 Text("의류수거함 오류 신고")
