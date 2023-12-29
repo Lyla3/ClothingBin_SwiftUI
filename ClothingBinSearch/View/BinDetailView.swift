@@ -22,17 +22,14 @@ struct BinDetailView: View {
             HStack {
                 Text("의류수거함 정보")
                     .bold()
-                Button {
-                    isShowingReportAlert = true
-                } label: {
-                    Image(systemName: "exclamationmark.circle.fill")
-                        .foregroundColor(.black)
-                }
-                .alert("메시지", isPresented: $isShowingReportAlert){
-                    Button("OK", role: .cancel) { 
-                        //
-                    }
-                }
+                Button(action: {
+                    isShowingReportAlert.toggle()
+                        }) {
+                            Image(systemName: "ellipsis")
+                                .foregroundStyle(.gray)
+                        }
+                        .actionSheet(isPresented: $isShowingReportAlert, content: getActionSheet)
+                
                 Spacer()
                 Button {
                     isShowingBinDetailView = false
@@ -110,6 +107,18 @@ struct BinDetailView: View {
         .frame(width: screenWidth, height: 200)
         .background(.white)
     }
+    
+    func getActionSheet() -> ActionSheet {
+            
+            let button1: ActionSheet.Button = .default(Text("오류신고".uppercased()))
+            let button2: ActionSheet.Button = .cancel(Text("취소"))
+            
+            let title = Text("원하는 옵션을 선택해주세요")
+            
+            return ActionSheet(title: title,
+                               message: nil,
+                               buttons: [button1,  button2])
+        }
     
     private func copyToClipboard(text: String) {
         let pasteboard = UIPasteboard.general
