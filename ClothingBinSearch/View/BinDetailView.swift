@@ -112,7 +112,6 @@ struct BinDetailView: View {
                 .padding()
                 Spacer()
             }  .zIndex(1)
-                .border(.black)
             .alert("네이버 지도가 설치되어 있지 않습니다.", isPresented: $isShowingNMapAlert) {
                 Button("확인", role: .cancel) {
                 }
@@ -124,9 +123,6 @@ struct BinDetailView: View {
             .frame(width: screenWidth, height: 200)
             .background(.white)
         }
-//        .onSubmit {
-//            selectedBinData.binData = currentMarkerAddress
-//        }
         .fullScreenCover(isPresented: $isShowingReportView) {
             ReportView(pressedReportButton: false, isShowingReportView: $isShowingReportView)
         }
@@ -136,7 +132,6 @@ struct BinDetailView: View {
         .onChange(of: currentMarkerAddress) { newValue in
             selectedBinData.binData = String(currentMarkerAddress)
         }
-//        .border(.red)
     }
     
     func getActionSheet() -> ActionSheet {

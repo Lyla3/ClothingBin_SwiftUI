@@ -12,9 +12,6 @@ struct ReportView: View {
 //            if pressedReportButton{
 //                ReportCheckView(pressedReportButton: $pressedReportButton, isShowingReportView: $isShowingReportView)
 //            }
-                
-            
-            
             //MARK: - ReportView
             VStack(alignment: .leading) {
                 ZStack(){
@@ -26,13 +23,11 @@ struct ReportView: View {
                             Spacer()
                         }
                         .padding(.bottom, 18)
-//                        .padding(.top, 10)
                         Button(action: { isShowingReportView = false }) {
                             Image(systemName: "xmark")
                                 .foregroundColor(.black)
                                 .font(.title2)
                         }
-//                        .padding(.top, 10)
                     }
                     .padding(.horizontal,20)
                 }
@@ -40,9 +35,8 @@ struct ReportView: View {
                     Text("신고 사유를 입력해주세요.")
                         .bold()
                     VStack{
-                        ReportButtonView(label: "의류수거함이 이 위치에 없습니다.", isSelected: $selectedButtonLabel, pressedReportButton: $isShowingReportCheckView)
-                        ReportButtonView(label: "의류수거함을 사용할 수 없는 상태입니다.", isSelected: $selectedButtonLabel, pressedReportButton: $isShowingReportCheckView)
-                        // You can add more buttons here if needed
+                        ReportButtonView(label: "의류수거함이 이 위치에 없습니다.", selectedButtonLabel: $selectedButtonLabel, pressedReportButton: $isShowingReportCheckView)
+                        ReportButtonView(label: "의류수거함을 사용할 수 없는 상태입니다.", selectedButtonLabel: $selectedButtonLabel, pressedReportButton: $isShowingReportCheckView)
                     }
                     Spacer()
                 }
@@ -51,8 +45,7 @@ struct ReportView: View {
             .background(.white)
             
             .fullScreenCover(isPresented: $isShowingReportCheckView) {
-                ReportCheckView(pressedReportButton: $pressedReportButton, isShowingReportView: $isShowingReportCheckView)
-//                    .transition(.opacity)
+                ReportCheckView(pressedReportButton: $pressedReportButton, isShowingReportView: $isShowingReportView, isShowingReportCheckView: $isShowingReportCheckView, selectedButtonLabel: $selectedButtonLabel)
                     .transition(.scale)
 
             }
@@ -63,12 +56,12 @@ struct ReportView: View {
 
 struct ReportButtonView: View {
     let label: String
-    @Binding var isSelected: String?
+    @Binding var selectedButtonLabel: String?
     @Binding var pressedReportButton: Bool
     
     var body: some View {
         Button(action: {
-            isSelected = label
+            selectedButtonLabel = label
             pressedReportButton = true
 
             // Handle button action here
@@ -81,11 +74,10 @@ struct ReportButtonView: View {
             .foregroundStyle(.black)
 
             .padding(.vertical, 10)
-            .background(isSelected == label ? Color.gray.opacity(0.3) : Color.clear)
-            .onChange(of: isSelected) { newValue in
+            .background(selectedButtonLabel == label ? Color.gray.opacity(0.3) : Color.clear)
+            .onChange(of: selectedButtonLabel) { newValue in
                             if newValue == label {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                    isSelected = nil
                                 }
                             }
                         }
