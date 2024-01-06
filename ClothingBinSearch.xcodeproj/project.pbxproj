@@ -11,6 +11,7 @@
 		630A3C382B13769D00BDE978 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3C372B13769D00BDE978 /* Modifiers.swift */; };
 		630A3C3A2B13773E00BDE978 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3C392B13773E00BDE978 /* Color+.swift */; };
 		635A1A8A2B3F209200FF66B1 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A892B3F209200FF66B1 /* ReportView.swift */; };
+		635A1A8C2B3FC31200FF66B1 /* ReportCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */; };
 		635C68692B2422C2001EB126 /* ReportNoClothingBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */; };
 		635C686D2B271854001EB126 /* ReportBinRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C686C2B271854001EB126 /* ReportBinRadioButton.swift */; };
 		6378B4E52B0CD6E500D69035 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E42B0CD6E500D69035 /* Constant.swift */; };
@@ -45,6 +46,7 @@
 		63BF3DC02AF91B8C00802778 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 63BF3DBF2AF91B8C00802778 /* FirebaseAppCheck */; };
 		63BF3DC22AF91D3200802778 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63BF3DC12AF91D3200802778 /* GoogleService-Info.plist */; };
 		63BF3DC42AF92BC600802778 /* AnalyticsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */; };
+		63C26D562B497E8C007332C4 /* SelectedBinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C26D552B497E8C007332C4 /* SelectedBinData.swift */; };
 		63C7EB6F2AD430160002080D /* BinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7EB6E2AD430160002080D /* BinDetailView.swift */; };
 		63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */; };
 		63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49082AC9F09300C782EF /* RegionSelectionView.swift */; };
@@ -56,6 +58,7 @@
 		630A3C372B13769D00BDE978 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		630A3C392B13773E00BDE978 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		635A1A892B3F209200FF66B1 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckView.swift; sourceTree = "<group>"; };
 		635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNoClothingBinView.swift; sourceTree = "<group>"; };
 		635C686C2B271854001EB126 /* ReportBinRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBinRadioButton.swift; sourceTree = "<group>"; };
 		6378B4E42B0CD6E500D69035 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		63BB0A032AC33E0F002CCE4E /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		63BF3DC12AF91D3200802778 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsStore.swift; sourceTree = "<group>"; };
+		63C26D552B497E8C007332C4 /* SelectedBinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBinData.swift; sourceTree = "<group>"; };
 		63C7EB6E2AD430160002080D /* BinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinDetailView.swift; sourceTree = "<group>"; };
 		63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomLevelGuideView.swift; sourceTree = "<group>"; };
 		63CD49082AC9F09300C782EF /* RegionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionView.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				63CD49082AC9F09300C782EF /* RegionSelectionView.swift */,
 				63C7EB6E2AD430160002080D /* BinDetailView.swift */,
 				63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */,
+				635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */,
 				6378B4E62B0CD7AD00D69035 /* GuideView.swift */,
 				635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */,
 				635C686C2B271854001EB126 /* ReportBinRadioButton.swift */,
@@ -189,6 +194,7 @@
 			children = (
 				63BB09E52AC07B18002CCE4E /* ClothingBInStore.swift */,
 				63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */,
+				63C26D552B497E8C007332C4 /* SelectedBinData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -403,7 +409,9 @@
 				6378B4ED2B11DC9200D69035 /* GuideImageData.swift in Sources */,
 				63BB09E82AC07FFB002CCE4E /* ButtonType.swift in Sources */,
 				6378B4E52B0CD6E500D69035 /* Constant.swift in Sources */,
+				635A1A8C2B3FC31200FF66B1 /* ReportCheckView.swift in Sources */,
 				6378B4E92B0CE63B00D69035 /* CGFloat+.swift in Sources */,
+				63C26D562B497E8C007332C4 /* SelectedBinData.swift in Sources */,
 				635A1A8A2B3F209200FF66B1 /* ReportView.swift in Sources */,
 				63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */,
 				63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */,

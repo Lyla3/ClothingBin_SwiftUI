@@ -2,25 +2,75 @@ import SwiftUI
 
 struct ReportView: View {
     @State private var selectedButtonLabel: String? = nil
-    
+    @State var pressedReportButton: Bool = false
+    @Binding var isShowingReportView: Bool
+    @State var isShowingReportCheckView: Bool = false
+
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("신고 사유를 입력해주세요.")
-            ReportButtonView(label: "의류수거함 위치가 다릅니다.", isSelected: $selectedButtonLabel)
-            ReportButtonView(label: "신고 사유를 입력해주세요.", isSelected: $selectedButtonLabel)
-            // You can add more buttons here if needed
+        ZStack{
+            //MARK: - ReportCheckView
+//            if pressedReportButton{
+//                ReportCheckView(pressedReportButton: $pressedReportButton, isShowingReportView: $isShowingReportView)
+//            }
+                
+            
+            
+            //MARK: - ReportView
+            VStack(alignment: .leading) {
+                ZStack(){
+                    HStack(alignment:.top){
+                        HStack{
+                            Spacer()
+                            Text("의류수거함 신고")
+                                .bold()
+                            Spacer()
+                        }
+                        .padding(.bottom, 18)
+//                        .padding(.top, 10)
+                        Button(action: { isShowingReportView = false }) {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.black)
+                                .font(.title2)
+                        }
+//                        .padding(.top, 10)
+                    }
+                    .padding(.horizontal,20)
+                }
+                VStack(alignment:.leading){
+                    Text("신고 사유를 입력해주세요.")
+                        .bold()
+                    VStack{
+                        ReportButtonView(label: "의류수거함이 이 위치에 없습니다.", isSelected: $selectedButtonLabel, pressedReportButton: $isShowingReportCheckView)
+                        ReportButtonView(label: "의류수거함을 사용할 수 없는 상태입니다.", isSelected: $selectedButtonLabel, pressedReportButton: $isShowingReportCheckView)
+                        // You can add more buttons here if needed
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal,20)
+            }
+            .background(.white)
+            
+            .fullScreenCover(isPresented: $isShowingReportCheckView) {
+                ReportCheckView(pressedReportButton: $pressedReportButton, isShowingReportView: $isShowingReportCheckView)
+//                    .transition(.opacity)
+                    .transition(.scale)
+
+            }
+           
         }
-        .padding()
     }
 }
 
 struct ReportButtonView: View {
     let label: String
     @Binding var isSelected: String?
+    @Binding var pressedReportButton: Bool
     
     var body: some View {
         Button(action: {
             isSelected = label
+            pressedReportButton = true
+
             // Handle button action here
         }) {
             HStack {
@@ -45,6 +95,6 @@ struct ReportButtonView: View {
 
 struct ReportView_Previews: PreviewProvider {
     static var previews: some View {
-        ReportView()
+        ReportView( isShowingReportView: .constant(true))
     }
 }
