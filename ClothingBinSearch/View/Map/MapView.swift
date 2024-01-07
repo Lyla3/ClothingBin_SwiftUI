@@ -189,8 +189,6 @@ struct MapView: View {
             Coordinator.shared.moveCameraPosition()
             Coordinator.shared.makeMarkers()
             print("coordinator.showingLocationPermissionAlert:\(coordinator.isShowingLocationPermissionAlert)")
-            
-//            analyticsStore.logEvent(itemName: "init-mapView", contentType: " ContentType")
         }
     }
     

@@ -13,6 +13,7 @@ struct ReportCheckView: View {
     @Binding var isShowingReportCheckView: Bool
     @Binding var selectedButtonLabel: String?
     @EnvironmentObject var selectedBinData: SelectedBinData
+    @State var reportBinStore: ReportBinStore = ReportBinStore()
     
     var body: some View {
         ZStack{
@@ -26,8 +27,12 @@ struct ReportCheckView: View {
                     .padding(.vertical,7)
                 Button{
                     // 신고하기 로직
+                    reportBinStore.binAddress = selectedBinData.binData
+                    reportBinStore.uploadBin(reason: selectedButtonLabel ?? "")
+                    
                     print("\(selectedBinData.binData)")
                     print("buttonLabel:\(String(describing: selectedButtonLabel))")
+                    
                     // 창 닫기
                     isShowingReportView = false
                     isShowingReportCheckView = false

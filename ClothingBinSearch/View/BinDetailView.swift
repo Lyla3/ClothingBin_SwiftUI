@@ -18,22 +18,11 @@ struct BinDetailView: View {
     @State var isShowingReportAlert: Bool = false
     @State var isShowingReportView: Bool = false
     
-    //하위에 넘겨줄 값
+    //선택된 의류수거함 데이터
     @EnvironmentObject var selectedBinData: SelectedBinData
     
     var body: some View {
         ZStack{
-            //MARK: - ReportView 보여주기
-//            if isShowingReportView {
-//                ReportView(pressedReportButton: false, isShowingReportView: $isShowingReportView)
-//                    .border(.black)
-//                    .zIndex(2)
-////                    .ignoresSafeArea()
-//                    
-//            }
-            
-               
-
             VStack {
                 HStack {
                     Text("의류수거함 정보")
@@ -135,17 +124,13 @@ struct BinDetailView: View {
     }
     
     func getActionSheet() -> ActionSheet {
-//        var currentMarkerAddress: String?
-            
             let button1: ActionSheet.Button =  .default(Text("오류 신고".uppercased()), action: {
                 //ReportView 띄우기
                 isShowingReportView = true
-                //isShowingBinDetailView = false
             })
             let button2: ActionSheet.Button = .cancel(Text("취소"))
             
         let title = Text("이 의류수거함을 신고하시겠습니까?")
-            
             return ActionSheet(title: title,
                                message: nil,
                                buttons: [button1,  button2])

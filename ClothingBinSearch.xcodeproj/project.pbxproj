@@ -47,6 +47,8 @@
 		63BF3DC22AF91D3200802778 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63BF3DC12AF91D3200802778 /* GoogleService-Info.plist */; };
 		63BF3DC42AF92BC600802778 /* AnalyticsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */; };
 		63C26D562B497E8C007332C4 /* SelectedBinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C26D552B497E8C007332C4 /* SelectedBinData.swift */; };
+		63C26D5A2B4AA1D7007332C4 /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C26D592B4AA1D7007332C4 /* ReportStore.swift */; };
+		63C26D5C2B4AA343007332C4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 63C26D5B2B4AA343007332C4 /* FirebaseFirestore */; };
 		63C7EB6F2AD430160002080D /* BinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7EB6E2AD430160002080D /* BinDetailView.swift */; };
 		63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */; };
 		63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49082AC9F09300C782EF /* RegionSelectionView.swift */; };
@@ -91,6 +93,7 @@
 		63BF3DC12AF91D3200802778 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsStore.swift; sourceTree = "<group>"; };
 		63C26D552B497E8C007332C4 /* SelectedBinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBinData.swift; sourceTree = "<group>"; };
+		63C26D592B4AA1D7007332C4 /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 		63C7EB6E2AD430160002080D /* BinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinDetailView.swift; sourceTree = "<group>"; };
 		63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomLevelGuideView.swift; sourceTree = "<group>"; };
 		63CD49082AC9F09300C782EF /* RegionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionView.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 				63BF3DBA2AF91B8C00802778 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				63BF3DC02AF91B8C00802778 /* FirebaseAppCheck in Frameworks */,
 				501138EFD24F8D9A231932B3 /* Pods_ClothingBinSearch.framework in Frameworks */,
+				63C26D5C2B4AA343007332C4 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,16 +179,15 @@
 		63BB09D52AC06389002CCE4E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				63BB09DF2AC077D4002CCE4E /* MapView.swift */,
+				63C26D582B4A9BC8007332C4 /* Map */,
+				63C26D572B4A9B90007332C4 /* Report */,
 				63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */,
 				63CD49082AC9F09300C782EF /* RegionSelectionView.swift */,
 				63C7EB6E2AD430160002080D /* BinDetailView.swift */,
 				63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */,
-				635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */,
 				6378B4E62B0CD7AD00D69035 /* GuideView.swift */,
 				635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */,
 				635C686C2B271854001EB126 /* ReportBinRadioButton.swift */,
-				635A1A892B3F209200FF66B1 /* ReportView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 		63BB09D62AC0638E002CCE4E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				63C26D592B4AA1D7007332C4 /* ReportStore.swift */,
 				63BB09E52AC07B18002CCE4E /* ClothingBInStore.swift */,
 				63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */,
 				63C26D552B497E8C007332C4 /* SelectedBinData.swift */,
@@ -252,6 +256,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		63C26D572B4A9B90007332C4 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */,
+				635A1A892B3F209200FF66B1 /* ReportView.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		63C26D582B4A9BC8007332C4 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				63BB09DF2AC077D4002CCE4E /* MapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		7909AD6E54B1FCE694BAA99F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +314,7 @@
 				63BF3DBB2AF91B8C00802778 /* FirebaseAnalyticsSwift */,
 				63BF3DBD2AF91B8C00802778 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				63BF3DBF2AF91B8C00802778 /* FirebaseAppCheck */,
+				63C26D5B2B4AA343007332C4 /* FirebaseFirestore */,
 			);
 			productName = ClothingBinSearch;
 			productReference = 63BB09C42AC0637D002CCE4E /* ClothingBinSearch.app */;
@@ -413,6 +435,7 @@
 				6378B4E92B0CE63B00D69035 /* CGFloat+.swift in Sources */,
 				63C26D562B497E8C007332C4 /* SelectedBinData.swift in Sources */,
 				635A1A8A2B3F209200FF66B1 /* ReportView.swift in Sources */,
+				63C26D5A2B4AA1D7007332C4 /* ReportStore.swift in Sources */,
 				63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */,
 				63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */,
 				63C7EB6F2AD430160002080D /* BinDetailView.swift in Sources */,
@@ -680,6 +703,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAppCheck;
+		};
+		63C26D5B2B4AA343007332C4 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BF3DB62AF91B8C00802778 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
