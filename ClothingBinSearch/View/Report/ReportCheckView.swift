@@ -12,6 +12,8 @@ struct ReportCheckView: View {
     @Binding var isShowingReportView: Bool
     @Binding var isShowingReportCheckView: Bool
     @Binding var selectedButtonLabel: String?
+    @State private var isDoneReported: Bool = false
+    
     @EnvironmentObject var selectedBinData: SelectedBinData
     @State var reportBinStore: ReportBinStore = ReportBinStore()
     
@@ -22,6 +24,7 @@ struct ReportCheckView: View {
                 .blur(radius: 2)
                 .ignoresSafeArea()
             VStack(alignment: .leading) {
+                
                 Text("신고하시겠습니까?")
                     .bold()
                     .padding(.vertical,7)
@@ -37,6 +40,10 @@ struct ReportCheckView: View {
                     isShowingReportView = false
                     isShowingReportCheckView = false
                     pressedReportButton = false
+                    
+                    // 신고가 완료되었음을 표시
+                    isDoneReported = true
+                    
                 } label: {
                     Spacer()
                     Text("신고하기")
@@ -45,16 +52,17 @@ struct ReportCheckView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 Button{
-                    //
                     isShowingReportCheckView = false
                     pressedReportButton = false
                 } label: {
                     Spacer()
                     Text("취소")
                     Spacer()
-
                 }
             }
+            .alert(isPresented: $isDoneReported) {
+                            Alert(title: Text("알림"), message: Text("신고가 정상적으로 처리되었습니다."), dismissButton: .default(Text("확인")))
+                        }
                 .foregroundColor(.black)
                 .font(.body)
                 .frame(width:300)

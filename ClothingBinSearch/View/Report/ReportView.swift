@@ -58,13 +58,17 @@ struct ReportButtonView: View {
     let label: String
     @Binding var selectedButtonLabel: String?
     @Binding var pressedReportButton: Bool
+    @State private var isActive = false
     
     var body: some View {
         Button(action: {
             selectedButtonLabel = label
             pressedReportButton = true
-
-            // Handle button action here
+            isActive = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        isActive = false
+                    }
         }) {
             HStack {
                 Text(label)
@@ -72,15 +76,8 @@ struct ReportButtonView: View {
                 Image(systemName: "chevron.forward")
             }
             .foregroundStyle(.black)
-
             .padding(.vertical, 10)
-            .background(selectedButtonLabel == label ? Color.gray.opacity(0.3) : Color.clear)
-            .onChange(of: selectedButtonLabel) { newValue in
-                            if newValue == label {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                }
-                            }
-                        }
+            .background(isActive ? Color.gray.opacity(0.3) : Color.clear)
         }
     }
 }
