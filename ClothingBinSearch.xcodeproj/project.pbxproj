@@ -49,6 +49,7 @@
 		63C26D562B497E8C007332C4 /* SelectedBinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C26D552B497E8C007332C4 /* SelectedBinData.swift */; };
 		63C26D5A2B4AA1D7007332C4 /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C26D592B4AA1D7007332C4 /* ReportStore.swift */; };
 		63C26D5C2B4AA343007332C4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 63C26D5B2B4AA343007332C4 /* FirebaseFirestore */; };
+		63C26D642B4AE7D7007332C4 /* Seoul_Gangdong.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63C26D632B4AE7D7007332C4 /* Seoul_Gangdong.csv */; };
 		63C7EB6F2AD430160002080D /* BinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7EB6E2AD430160002080D /* BinDetailView.swift */; };
 		63CD49062AC7ECA200C782EF /* ZoomLevelGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */; };
 		63CD49092AC9F09300C782EF /* RegionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD49082AC9F09300C782EF /* RegionSelectionView.swift */; };
@@ -94,6 +95,7 @@
 		63BF3DC32AF92BC600802778 /* AnalyticsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsStore.swift; sourceTree = "<group>"; };
 		63C26D552B497E8C007332C4 /* SelectedBinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBinData.swift; sourceTree = "<group>"; };
 		63C26D592B4AA1D7007332C4 /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
+		63C26D632B4AE7D7007332C4 /* Seoul_Gangdong.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Gangdong.csv; sourceTree = "<group>"; };
 		63C7EB6E2AD430160002080D /* BinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinDetailView.swift; sourceTree = "<group>"; };
 		63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomLevelGuideView.swift; sourceTree = "<group>"; };
 		63CD49082AC9F09300C782EF /* RegionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionView.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		63BB09EF2AC33D83002CCE4E /* ClotingBinData */ = {
 			isa = PBXGroup;
 			children = (
+				63C26D632B4AE7D7007332C4 /* Seoul_Gangdong.csv */,
 				63BB09F22AC33DCD002CCE4E /* Seoul_Dongjak.csv */,
 				63BB09F12AC33DCD002CCE4E /* Seoul_Gangnam.csv */,
 				63BB09F02AC33DCC002CCE4E /* Seoul_Gongro.csv */,
@@ -371,6 +374,7 @@
 				63BB09FD2AC33DCD002CCE4E /* Seoul_Mapo.csv in Resources */,
 				63BB0A002AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv in Resources */,
 				63BB09FA2AC33DCD002CCE4E /* Seoul_Gangnam.csv in Resources */,
+				63C26D642B4AE7D7007332C4 /* Seoul_Gangdong.csv in Resources */,
 				63BB09FE2AC33DCD002CCE4E /* Seoul_guro.csv in Resources */,
 				63BB09DB2AC0695F002CCE4E /* .gitignore in Resources */,
 				63BB09CC2AC0637E002CCE4E /* Assets.xcassets in Resources */,

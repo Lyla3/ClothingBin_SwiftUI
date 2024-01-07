@@ -9,6 +9,7 @@ import Foundation
 
 enum Region: String, CaseIterable {
     case Gangnam = "서울시 강남구"
+    case Gangdong = "서울시 강동구"
     case Dongjak = "서울시 동작구"
     case Guro = "서울시 구로구"
     case Mapo = "서울시 마포구"
@@ -23,6 +24,8 @@ enum Region: String, CaseIterable {
         switch self {
         case .Gangnam :
             return "Seoul_Gangnam"
+        case .Gangdong :
+            return "Seoul_Gangdong"
         case .Dongjak :
             return "Seoul_Dongjak"
         case .Guro :
