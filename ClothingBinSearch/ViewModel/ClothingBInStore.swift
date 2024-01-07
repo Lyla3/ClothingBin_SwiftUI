@@ -143,8 +143,6 @@ class ClothingBinStore: ObservableObject{
                 for item in dataArr {
                     // 변환 값 나누어서 배열에 넣기
                     clothingBinLocationArrayString.append(item)
-//                    print("item:\(item)")
-                    
                 }
 
             }
@@ -153,14 +151,23 @@ class ClothingBinStore: ObservableObject{
         }
     }
     
-    func changeStringToClothingBin(from clothinBinStringArray:[[String]]) {        
+    func changeStringToClothingBin(from clothinBinStringArray:[[String]]) {
         for clothingBox in clothinBinStringArray {
             let clothingBoxInfo = clothingBox[0]
-            let clothingBoxLat = Double(clothingBox[1]) ?? 0.0
-            let clothingBoxLon = Double(clothingBox[2].replacingOccurrences(of: "\r", with: "")) ?? 0.0
-            clothingBinArray.append(ClothingBin(address: clothingBoxInfo, coord: NMGLatLng(lat:clothingBoxLat,lng:clothingBoxLon), addressDetail: "", info: ""))
+            let clothingBoxLat: Double
+            let clothingBoxLon: Double
+
+            if clothingBox.count > 1 {
+                clothingBoxLat = Double(clothingBox[1]) ?? 0.0
+                clothingBoxLon = clothingBox.count > 2 ? Double(clothingBox[2].replacingOccurrences(of: "\r", with: "")) ?? 0.0 : 0.0
+                clothingBinArray.append(ClothingBin(address: clothingBoxInfo, coord: NMGLatLng(lat:clothingBoxLat,lng:clothingBoxLon), addressDetail: "", info: ""))
+            } else {
+                // clothingBox.count가 1보다 작을 경우 아무 값도 추가되지 않음.
+                continue
+            }
         }
     }
+
     
     // clothingBinLocationArray 받아오기
 //    private func loadClothingBinCloseCurrentLocation(from cvsArray:[[String]]) {
@@ -180,7 +187,6 @@ class ClothingBinStore: ObservableObject{
     
     //MARK: - 유저와의 거리가 가까운 의류수거함만 남김
     private func extractClothingBinsWithinDistance(_ bins: [ClothingBin], maxDistance: CLLocationDistance) {
-//        print("\(clothingBinArray)")
         
         // 거리가 maxDistance 이내인지 확인하는 함수
         func isWithinMaxDistance(_ bin: ClothingBin) -> Bool {

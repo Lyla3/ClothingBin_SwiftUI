@@ -16,6 +16,8 @@ struct MapView: View {
     @State private var uniqueUserID: String = ""
     @State var analyticsStore: AnalyticsStore = AnalyticsStore()
     
+    @EnvironmentObject var selectedBinData: SelectedBinData
+    
     var body: some View {
         ZStack(alignment:.topTrailing) {
             NaverMap().ignoresSafeArea()
@@ -187,8 +189,6 @@ struct MapView: View {
             Coordinator.shared.moveCameraPosition()
             Coordinator.shared.makeMarkers()
             print("coordinator.showingLocationPermissionAlert:\(coordinator.isShowingLocationPermissionAlert)")
-            
-//            analyticsStore.logEvent(itemName: "init-mapView", contentType: " ContentType")
         }
     }
     

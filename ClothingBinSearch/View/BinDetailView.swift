@@ -15,89 +15,126 @@ struct BinDetailView: View {
     
     @State var isShowingNMapAlert: Bool = false
     @State var isShowingAppleMapAlert: Bool = false
+    @State var isShowingReportAlert: Bool = false
+    @State var isShowingReportView: Bool = false
+    
+    //선택된 의류수거함 데이터
+    @EnvironmentObject var selectedBinData: SelectedBinData
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("의류수거함 정보")
-                    .bold()
-                Spacer()
-                Button {
-                    isShowingBinDetailView = false
+        ZStack{
+            VStack {
+                HStack {
+                    Text("의류수거함 정보")
+                        .bold()
+                    Button(action: {
+                        isShowingReportAlert.toggle()
+                    }) {
+                        Image(systemName: "ellipsis")
+                            .foregroundStyle(.gray)
+                    }
+                    .actionSheet(isPresented: $isShowingReportAlert, content: getActionSheet)
                     
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.black)
+                    Spacer()
+                    Button {
+                        isShowingBinDetailView = false
+                        
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.black)
+                    }
                 }
-            }
-            .padding(10)
-            .padding(.vertical ,3)
-            
-            HStack{
-                Text("주소")
-                    .padding(.horizontal, 4)
-                    .padding(.vertical, 4)
-                    .background(
-                        RoundedRectangle(cornerRadius: 3)
-                            .fill(Color.lightGrayColor)
-                    )
-                Button {
-                    copyToClipboard(text: "\(currentMarkerAddress)")
-                } label: {
-                    Text("\(currentMarkerAddress)")
-                        .foregroundColor(.black)
-                }
+                .padding(10)
+                .padding(.vertical ,3)
                 
-                Button {
-                    copyToClipboard(text: "\(currentMarkerAddress)")
-                } label: {
-                    Image(systemName: "doc.on.doc")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 14)
-                        .foregroundColor(.middleGrayColor)
+                HStack{
+                    Text("주소")
+                        .padding(.horizontal, 4)
+                        .padding(.vertical, 4)
+                        .background(
+                            RoundedRectangle(cornerRadius: 3)
+                                .fill(Color.lightGrayColor)
+                        )
+                    Button {
+                        copyToClipboard(text: "\(currentMarkerAddress)")
+                    } label: {
+                        Text("\(currentMarkerAddress)")
+                            .foregroundColor(.black)
+                    }
+                    
+                    Button {
+                        copyToClipboard(text: "\(currentMarkerAddress)")
+                    } label: {
+                        Image(systemName: "doc.on.doc")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 14)
+                            .foregroundColor(.middleGrayColor)
+                    }
+                    Spacer()
+                    
                 }
+                .padding(.horizontal,10)
+                HStack{
+                    
+                    Button(action: {
+                        openAppleMapWithSearch(address: currentMarkerAddress)
+                    }) {
+                        Text("애플 지도로 보기")
+                            .font(.footnote)
+                            .padding(10)
+                            .background(Color.lightGrayColor)
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                    }
+                    Button(action: {
+                        openNaverMapWithSearch(address: currentMarkerAddress)
+                    }) {
+                        Text("네이버 지도로 보기")
+                            .font(.footnote)
+                            .padding(10)
+                            .background(Color.lightGrayColor)
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                    }
+                }
+                .padding()
                 Spacer()
-                
-            }
-            .padding(.horizontal,10)
-            HStack{
-                
-                Button(action: {
-                    openAppleMapWithSearch(address: currentMarkerAddress)
-                }) {
-                    Text("애플 지도로 보기")
-                        .font(.footnote)
-                        .padding(10)
-                        .background(Color.lightGrayColor)
-                        .foregroundColor(.black)
-                        .cornerRadius(10)
-                }
-                Button(action: {
-                    openNaverMapWithSearch(address: currentMarkerAddress)
-                }) {
-                    Text("네이버 지도로 보기")
-                        .font(.footnote)
-                        .padding(10)
-                        .background(Color.lightGrayColor)
-                        .foregroundColor(.black)
-                        .cornerRadius(10)
+            }  .zIndex(1)
+            .alert("네이버 지도가 설치되어 있지 않습니다.", isPresented: $isShowingNMapAlert) {
+                Button("확인", role: .cancel) {
                 }
             }
-            .padding()
-            Spacer()
-        }
-        .alert("네이버 지도가 설치되어 있지 않습니다.", isPresented: $isShowingNMapAlert) {
-            Button("확인", role: .cancel) {
+            .alert("애플 지도(Apple Maps)가 설치되어 있지 않습니다.", isPresented: $isShowingAppleMapAlert) {
+                Button("확인", role: .cancel) {
+                }
             }
+            .frame(width: screenWidth, height: 200)
+            .background(.white)
         }
-        .alert("애플 지도(Apple Maps)가 설치되어 있지 않습니다.", isPresented: $isShowingAppleMapAlert) {
-            Button("확인", role: .cancel) {
-            }
+        .fullScreenCover(isPresented: $isShowingReportView) {
+            ReportView(pressedReportButton: false, isShowingReportView: $isShowingReportView)
         }
-        .frame(width: screenWidth, height: 200)
-        .background(.white)
+        .onAppear{
+            selectedBinData.binData = String(currentMarkerAddress)
+        }
+        .onChange(of: currentMarkerAddress) { newValue in
+            selectedBinData.binData = String(currentMarkerAddress)
+        }
     }
+    
+    func getActionSheet() -> ActionSheet {
+            let button1: ActionSheet.Button =  .default(Text("오류 신고".uppercased()), action: {
+                //ReportView 띄우기
+                isShowingReportView = true
+            })
+            let button2: ActionSheet.Button = .cancel(Text("취소"))
+            
+        let title = Text("이 의류수거함을 신고하시겠습니까?")
+            return ActionSheet(title: title,
+                               message: nil,
+                               buttons: [button1,  button2])
+        }
     
     private func copyToClipboard(text: String) {
         let pasteboard = UIPasteboard.general
