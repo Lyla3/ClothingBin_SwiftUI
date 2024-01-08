@@ -19,7 +19,7 @@ struct BinDetailView: View {
     @State var isShowingReportView: Bool = false
     
     //선택된 의류수거함 데이터
-    @EnvironmentObject var selectedBinData: SelectedBinData
+    @EnvironmentObject var reportBinData: ReportBinData
     
     var body: some View {
         ZStack{
@@ -112,21 +112,30 @@ struct BinDetailView: View {
             .frame(width: screenWidth, height: 200)
             .background(.white)
         }
-        .fullScreenCover(isPresented: $isShowingReportView) {
-            ReportView(pressedReportButton: false, isShowingReportView: $isShowingReportView)
+//        .fullScreenCover(isPresented: $selectedBinData.isShowingReportView) {
+//            ReportView(pressedReportButton: false, isShowingReportView: $selectedBinData.isShowingReportView)
+//        }
+        .sheet(isPresented: $reportBinData.isShowingReportView) {
+            ReportView(pressedReportButton: false, isShowingReportView: $reportBinData.isShowingReportView)
         }
+
         .onAppear{
-            selectedBinData.binData = String(currentMarkerAddress)
+            reportBinData.binData = String(currentMarkerAddress)
         }
         .onChange(of: currentMarkerAddress) { newValue in
-            selectedBinData.binData = String(currentMarkerAddress)
+            reportBinData.binData = String(currentMarkerAddress)
+        }
+        .onDisappear{
+            reportBinData.isShowingReportView = false
         }
     }
     
     func getActionSheet() -> ActionSheet {
             let button1: ActionSheet.Button =  .default(Text("오류 신고".uppercased()), action: {
+                
                 //ReportView 띄우기
-                isShowingReportView = true
+                reportBinData.isShowingReportView = true
+                isShowingReportView = reportBinData.isShowingReportView
             })
             let button2: ActionSheet.Button = .cancel(Text("취소"))
             

@@ -10,6 +10,8 @@ import FirebaseFirestore
 
 final class ReportBinStore: ObservableObject {
     @Published var binAddress: String = ""
+    @Published var isShowingReportView: Bool = false
+    @Published var isShowingReportCheckView: Bool = false
     
     //MARK: - 업로드
     func uploadBin(reason:String){

@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct ClothingBinSearchApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var selectedBinData = SelectedBinData()
+    @StateObject private var selectedBinData = ReportBinData()
 
     var body: some Scene {
         WindowGroup {
