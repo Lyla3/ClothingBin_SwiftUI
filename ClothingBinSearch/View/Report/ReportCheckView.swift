@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct ReportCheckView: View {
-    @Binding var pressedReportButton: Bool
     @Binding var isShowingReportView: Bool
     @Binding var isShowingReportCheckView: Bool
     @Binding var selectedButtonLabel: String?
     @State private var isDoneReported: Bool = false
     
-    @EnvironmentObject var selectedBinData: SelectedBinData
+    @EnvironmentObject var reportBinData: ReportBinData
     @State var reportBinStore: ReportBinStore = ReportBinStore()
     
     var body: some View {
@@ -30,19 +29,22 @@ struct ReportCheckView: View {
                     .padding(.vertical,7)
                 Button{
                     // 신고하기 로직
-                    reportBinStore.binAddress = selectedBinData.binData
+                    reportBinStore.binAddress = reportBinData.binData
                     reportBinStore.uploadBin(reason: selectedButtonLabel ?? "")
                     
-                    print("\(selectedBinData.binData)")
+                    print("\(reportBinData.binData)")
                     print("buttonLabel:\(String(describing: selectedButtonLabel))")
                     
-                    // 창 닫기
-                    isShowingReportView = false
-                    isShowingReportCheckView = false
-                    pressedReportButton = false
+                  
                     
                     // 신고가 완료되었음을 표시
                     isDoneReported = true
+                    
+                    // 창 닫기
+                    reportBinData.isShowingReportCheckView = false
+                    reportBinData.isShowingReportView = false
+                    
+                        print("selectedBinData.isShowingReportView\(reportBinData.isShowingReportView)")
                     
                 } label: {
                     Spacer()
@@ -53,7 +55,6 @@ struct ReportCheckView: View {
                 .buttonStyle(.borderedProminent)
                 Button{
                     isShowingReportCheckView = false
-                    pressedReportButton = false
                 } label: {
                     Spacer()
                     Text("취소")
@@ -82,6 +83,6 @@ struct ReportCheckView: View {
 
 struct ReportCheckView_Previews: PreviewProvider {
     static var previews: some View {
-        ReportCheckView(pressedReportButton: .constant(false), isShowingReportView: .constant(false), isShowingReportCheckView: .constant(true), selectedButtonLabel: .constant("selectedButtonLabel"))
+        ReportCheckView(isShowingReportView: .constant(false), isShowingReportCheckView: .constant(true), selectedButtonLabel: .constant("selectedButtonLabel"))
     }
 }

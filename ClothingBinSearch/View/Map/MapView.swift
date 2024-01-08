@@ -16,7 +16,7 @@ struct MapView: View {
     @State private var uniqueUserID: String = ""
     @State var analyticsStore: AnalyticsStore = AnalyticsStore()
     
-    @EnvironmentObject var selectedBinData: SelectedBinData
+    @EnvironmentObject var reportBinData: ReportBinData
     
     var body: some View {
         ZStack(alignment:.topTrailing) {
