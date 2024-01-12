@@ -30,19 +30,22 @@ struct RegionSelectionView: View {
                     }
             }
             .padding()
-            
-            ForEach(Region.allCases, id: \.self) { region in
-                Button(action: {
-                    print("Selected Region:", region.rawValue)
-                    Coordinator.shared.clothingBinStore.selectedRegion = region
-                    Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .region)
-                    isShowingModal = false
-                }) {
-                    Text(region.rawValue)
-                        .font(.headline)
-                        .foregroundColor(.black)
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
+            ScrollView{
+                ForEach(Region.allCases, id: \.self) { region in
+                    Divider()
+                    Button(action: {
+                        print("Selected Region:", region.rawValue)
+                        Coordinator.shared.clothingBinStore.selectedRegion = region
+                        Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .region)
+                        isShowingModal = false
+                    }) {
+                        Text(region.rawValue)
+                            .font(.headline)
+                            .foregroundColor(.black)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 10)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
                 }
                 Divider()
             }
