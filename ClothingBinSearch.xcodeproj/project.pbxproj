@@ -10,6 +10,9 @@
 		501138EFD24F8D9A231932B3 /* Pods_ClothingBinSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691697B7636254D2673E3562 /* Pods_ClothingBinSearch.framework */; };
 		630A3C382B13769D00BDE978 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3C372B13769D00BDE978 /* Modifiers.swift */; };
 		630A3C3A2B13773E00BDE978 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3C392B13773E00BDE978 /* Color+.swift */; };
+		63486CF22B4EB3E600CBAC59 /* RegionSelectionView_re.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63486CF12B4EB3E600CBAC59 /* RegionSelectionView_re.swift */; };
+		63486CF42B517A8100CBAC59 /* Seoul_Nowon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CF32B517A8100CBAC59 /* Seoul_Nowon.csv */; };
+		63486CF62B518DD000CBAC59 /* Seoul_Seocho.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CF52B518DCF00CBAC59 /* Seoul_Seocho.csv */; };
 		635A1A8A2B3F209200FF66B1 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A892B3F209200FF66B1 /* ReportView.swift */; };
 		635A1A8C2B3FC31200FF66B1 /* ReportCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */; };
 		635C68692B2422C2001EB126 /* ReportNoClothingBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */; };
@@ -60,6 +63,9 @@
 		0904CC62F02D7C08451E30CA /* Pods-ClothingBinSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingBinSearch.debug.xcconfig"; path = "Target Support Files/Pods-ClothingBinSearch/Pods-ClothingBinSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		630A3C372B13769D00BDE978 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		630A3C392B13773E00BDE978 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		63486CF12B4EB3E600CBAC59 /* RegionSelectionView_re.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionView_re.swift; sourceTree = "<group>"; };
+		63486CF32B517A8100CBAC59 /* Seoul_Nowon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Nowon.csv; sourceTree = "<group>"; };
+		63486CF52B518DCF00CBAC59 /* Seoul_Seocho.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Seocho.csv; sourceTree = "<group>"; };
 		635A1A892B3F209200FF66B1 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckView.swift; sourceTree = "<group>"; };
 		635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNoClothingBinView.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				63C26D572B4A9B90007332C4 /* Report */,
 				63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */,
 				63CD49082AC9F09300C782EF /* RegionSelectionView.swift */,
+				63486CF12B4EB3E600CBAC59 /* RegionSelectionView_re.swift */,
 				63C7EB6E2AD430160002080D /* BinDetailView.swift */,
 				63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */,
 				6378B4E62B0CD7AD00D69035 /* GuideView.swift */,
@@ -246,6 +253,8 @@
 				63BB09F62AC33DCD002CCE4E /* Seoul_Seodaemun.csv */,
 				63BB09F32AC33DCD002CCE4E /* Seoul_Yangcheon.csv */,
 				63BB09F72AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv */,
+				63486CF32B517A8100CBAC59 /* Seoul_Nowon.csv */,
+				63486CF52B518DCF00CBAC59 /* Seoul_Seocho.csv */,
 			);
 			path = ClotingBinData;
 			sourceTree = "<group>";
@@ -366,6 +375,7 @@
 			files = (
 				63BF3DC22AF91D3200802778 /* GoogleService-Info.plist in Resources */,
 				63BB09CF2AC0637E002CCE4E /* Preview Assets.xcassets in Resources */,
+				63486CF62B518DD000CBAC59 /* Seoul_Seocho.csv in Resources */,
 				63BB09FF2AC33DCD002CCE4E /* Seoul_Seodaemun.csv in Resources */,
 				63BB0A012AC33DCD002CCE4E /* Seoul_gwanak.csv in Resources */,
 				63BB09F92AC33DCD002CCE4E /* Seoul_Gongro.csv in Resources */,
@@ -375,6 +385,7 @@
 				63BB0A002AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv in Resources */,
 				63BB09FA2AC33DCD002CCE4E /* Seoul_Gangnam.csv in Resources */,
 				63C26D642B4AE7D7007332C4 /* Seoul_Gangdong.csv in Resources */,
+				63486CF42B517A8100CBAC59 /* Seoul_Nowon.csv in Resources */,
 				63BB09FE2AC33DCD002CCE4E /* Seoul_guro.csv in Resources */,
 				63BB09DB2AC0695F002CCE4E /* .gitignore in Resources */,
 				63BB09CC2AC0637E002CCE4E /* Assets.xcassets in Resources */,
@@ -430,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63486CF22B4EB3E600CBAC59 /* RegionSelectionView_re.swift in Sources */,
 				63BB0A042AC33E0F002CCE4E /* Region.swift in Sources */,
 				63BB09E62AC07B18002CCE4E /* ClothingBInStore.swift in Sources */,
 				6378B4ED2B11DC9200D69035 /* GuideImageData.swift in Sources */,
