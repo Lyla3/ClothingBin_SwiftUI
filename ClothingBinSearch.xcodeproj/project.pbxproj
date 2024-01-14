@@ -13,6 +13,11 @@
 		63486CF22B4EB3E600CBAC59 /* RegionSelectionView_re.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63486CF12B4EB3E600CBAC59 /* RegionSelectionView_re.swift */; };
 		63486CF42B517A8100CBAC59 /* Seoul_Nowon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CF32B517A8100CBAC59 /* Seoul_Nowon.csv */; };
 		63486CF62B518DD000CBAC59 /* Seoul_Seocho.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CF52B518DCF00CBAC59 /* Seoul_Seocho.csv */; };
+		63486CF82B5414C400CBAC59 /* Seoul_Songpa.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CF72B5414C400CBAC59 /* Seoul_Songpa.csv */; };
+		63486CFA2B54203800CBAC59 /* Seoul_Eunpyeong.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CF92B54203800CBAC59 /* Seoul_Eunpyeong.csv */; };
+		63486CFE2B542C2F00CBAC59 /* Seoul_Gwangjin.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CFD2B542C2F00CBAC59 /* Seoul_Gwangjin.csv */; };
+		63486D002B542E9000CBAC59 /* Seoul_Geumcheon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CFF2B542E9000CBAC59 /* Seoul_Geumcheon.csv */; };
+		63486D022B542FD500CBAC59 /* Seoul_Dongdaemun.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486D012B542FD500CBAC59 /* Seoul_Dongdaemun.csv */; };
 		635A1A8A2B3F209200FF66B1 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A892B3F209200FF66B1 /* ReportView.swift */; };
 		635A1A8C2B3FC31200FF66B1 /* ReportCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */; };
 		635C68692B2422C2001EB126 /* ReportNoClothingBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */; };
@@ -66,6 +71,11 @@
 		63486CF12B4EB3E600CBAC59 /* RegionSelectionView_re.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionView_re.swift; sourceTree = "<group>"; };
 		63486CF32B517A8100CBAC59 /* Seoul_Nowon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Nowon.csv; sourceTree = "<group>"; };
 		63486CF52B518DCF00CBAC59 /* Seoul_Seocho.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Seocho.csv; sourceTree = "<group>"; };
+		63486CF72B5414C400CBAC59 /* Seoul_Songpa.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Songpa.csv; sourceTree = "<group>"; };
+		63486CF92B54203800CBAC59 /* Seoul_Eunpyeong.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Eunpyeong.csv; sourceTree = "<group>"; };
+		63486CFD2B542C2F00CBAC59 /* Seoul_Gwangjin.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Gwangjin.csv; sourceTree = "<group>"; };
+		63486CFF2B542E9000CBAC59 /* Seoul_Geumcheon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Geumcheon.csv; sourceTree = "<group>"; };
+		63486D012B542FD500CBAC59 /* Seoul_Dongdaemun.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Dongdaemun.csv; sourceTree = "<group>"; };
 		635A1A892B3F209200FF66B1 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckView.swift; sourceTree = "<group>"; };
 		635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNoClothingBinView.swift; sourceTree = "<group>"; };
@@ -253,7 +263,12 @@
 				63BB09F62AC33DCD002CCE4E /* Seoul_Seodaemun.csv */,
 				63BB09F32AC33DCD002CCE4E /* Seoul_Yangcheon.csv */,
 				63BB09F72AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv */,
+				63486D012B542FD500CBAC59 /* Seoul_Dongdaemun.csv */,
+				63486CF92B54203800CBAC59 /* Seoul_Eunpyeong.csv */,
 				63486CF32B517A8100CBAC59 /* Seoul_Nowon.csv */,
+				63486CFD2B542C2F00CBAC59 /* Seoul_Gwangjin.csv */,
+				63486CFF2B542E9000CBAC59 /* Seoul_Geumcheon.csv */,
+				63486CF72B5414C400CBAC59 /* Seoul_Songpa.csv */,
 				63486CF52B518DCF00CBAC59 /* Seoul_Seocho.csv */,
 			);
 			path = ClotingBinData;
@@ -374,19 +389,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BF3DC22AF91D3200802778 /* GoogleService-Info.plist in Resources */,
+				63486D002B542E9000CBAC59 /* Seoul_Geumcheon.csv in Resources */,
 				63BB09CF2AC0637E002CCE4E /* Preview Assets.xcassets in Resources */,
 				63486CF62B518DD000CBAC59 /* Seoul_Seocho.csv in Resources */,
+				63486D022B542FD500CBAC59 /* Seoul_Dongdaemun.csv in Resources */,
 				63BB09FF2AC33DCD002CCE4E /* Seoul_Seodaemun.csv in Resources */,
 				63BB0A012AC33DCD002CCE4E /* Seoul_gwanak.csv in Resources */,
 				63BB09F92AC33DCD002CCE4E /* Seoul_Gongro.csv in Resources */,
 				63BB09FB2AC33DCD002CCE4E /* Seoul_Dongjak.csv in Resources */,
+				63486CFA2B54203800CBAC59 /* Seoul_Eunpyeong.csv in Resources */,
 				63BB09FC2AC33DCD002CCE4E /* Seoul_Yangcheon.csv in Resources */,
 				63BB09FD2AC33DCD002CCE4E /* Seoul_Mapo.csv in Resources */,
 				63BB0A002AC33DCD002CCE4E /* Seoul_Yeoungdeungpo.csv in Resources */,
 				63BB09FA2AC33DCD002CCE4E /* Seoul_Gangnam.csv in Resources */,
 				63C26D642B4AE7D7007332C4 /* Seoul_Gangdong.csv in Resources */,
+				63486CFE2B542C2F00CBAC59 /* Seoul_Gwangjin.csv in Resources */,
 				63486CF42B517A8100CBAC59 /* Seoul_Nowon.csv in Resources */,
 				63BB09FE2AC33DCD002CCE4E /* Seoul_guro.csv in Resources */,
+				63486CF82B5414C400CBAC59 /* Seoul_Songpa.csv in Resources */,
 				63BB09DB2AC0695F002CCE4E /* .gitignore in Resources */,
 				63BB09CC2AC0637E002CCE4E /* Assets.xcassets in Resources */,
 			);
