@@ -43,9 +43,7 @@ struct MapView: View {
                 isShowingGuideView = true
             } label: {
                 Image(systemName: "questionmark")
-//                Image("crosshair")
                     .resizable()
-//                    .scaledToFit()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 14,height: 14)
                     .padding(13)
