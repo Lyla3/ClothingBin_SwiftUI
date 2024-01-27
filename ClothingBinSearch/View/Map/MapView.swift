@@ -19,8 +19,12 @@ struct MapView: View {
     @EnvironmentObject var reportBinData: ReportBinData
     
     var body: some View {
+        
         ZStack(alignment:.topTrailing) {
+            
             NaverMap().ignoresSafeArea()
+            
+            
             HStack{
                 Button {
                     Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
@@ -36,7 +40,7 @@ struct MapView: View {
                 }
                 .position(x: 38, y:UIScreen.main.bounds.height - 200)
                 
-               
+                
             }
             Button {
                 // GuideView 띄우기
@@ -49,26 +53,10 @@ struct MapView: View {
                     .padding(13)
                     .background(.white)
                     .cornerRadius(90)
+                    .foregroundStyle(.black)
                     .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
             }
             .position(x: CGFloat.screenWidth - 35, y:32)
-//            HStack{
-//                Button {
-//                    Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
-//                } label: {
-//                                        Image(systemName: "questionmark.circle")
-//                        .resizable()
-//                        .foregroundStyle(.gray)
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: 22, height: 22)
-//                        
-//                        .padding(8)
-//                        .background(.white)
-//                        .cornerRadius(20)
-//                        .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 2)
-//                }
-//                .position(x:UIScreen.main.bounds.width - 34, y: 32)
-//            }
             HStack{
                 Button {
                     if Coordinator.shared.view.mapView.zoomLevel >= 13 {
@@ -112,22 +100,9 @@ struct MapView: View {
             }
             .position(x:UIScreen.main.bounds.width / 2, y:UIScreen.main.bounds.height - 120)
             
-            
+
             if isShowingGuideView {
-                Color.black.opacity(0.4)
-                    .onTapGesture {
-                        isShowingGuideView.toggle()
-                    }
-                    .ignoresSafeArea()
-                VStack {
-                   GuideView(isShowingGuide: $isShowingGuideView)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .padding(.horizontal)
-                        .padding(.bottom)
-                        .frame(maxHeight: .infinity)
-                }
-                .transition(.move(edge: .bottom))
+                GuideView(isShowingGuide: $isShowingGuideView)
             }
             
             if isShowingRegionSelectionView {
@@ -174,13 +149,13 @@ struct MapView: View {
             }
         }
         .alert(isPresented: $coordinator.isShowingLocationPermissionAlert) {
-                    Alert(
-                        title: Text("위치 권한 허용"),
-                        message: Text("설정>의류수거함 검색 에서 위치 서비스를 허용하시면 현재위치 의류수거함 정보를 보실 수 있습니다."),
-                        primaryButton: .default(Text("설정하기"), action: openSettings),
-                        secondaryButton: .cancel()
-                    )
-                }
+            Alert(
+                title: Text("위치 권한 허용"),
+                message: Text("설정>의류수거함 검색 에서 위치 서비스를 허용하시면 현재위치 의류수거함 정보를 보실 수 있습니다."),
+                primaryButton: .default(Text("설정하기"), action: openSettings),
+                secondaryButton: .cancel()
+            )
+        }
         .zIndex(1)
         .onAppear{
             Coordinator.shared.checkIfLocationServicesIsEnabled()
@@ -188,16 +163,18 @@ struct MapView: View {
             Coordinator.shared.makeMarkers()
             print("coordinator.showingLocationPermissionAlert:\(coordinator.isShowingLocationPermissionAlert)")
         }
+        
     }
     
+    
     func openSettings() {
-            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
-            
-            if UIApplication.shared.canOpenURL(settingsURL) {
-                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
-            }
-        coordinator.isShowingLocationPermissionAlert = false
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+        
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
         }
+        coordinator.isShowingLocationPermissionAlert = false
+    }
     
 }
 

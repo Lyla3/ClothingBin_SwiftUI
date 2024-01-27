@@ -18,12 +18,12 @@
 		63486CFE2B542C2F00CBAC59 /* Seoul_Gwangjin.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CFD2B542C2F00CBAC59 /* Seoul_Gwangjin.csv */; };
 		63486D002B542E9000CBAC59 /* Seoul_Geumcheon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CFF2B542E9000CBAC59 /* Seoul_Geumcheon.csv */; };
 		63486D022B542FD500CBAC59 /* Seoul_Dongdaemun.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486D012B542FD500CBAC59 /* Seoul_Dongdaemun.csv */; };
+		63486D852B64B74700CBAC59 /* BuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63486D842B64B74700CBAC59 /* BuideView.swift */; };
 		635A1A8A2B3F209200FF66B1 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A892B3F209200FF66B1 /* ReportView.swift */; };
 		635A1A8C2B3FC31200FF66B1 /* ReportCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */; };
 		635C68692B2422C2001EB126 /* ReportNoClothingBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */; };
 		635C686D2B271854001EB126 /* ReportBinRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C686C2B271854001EB126 /* ReportBinRadioButton.swift */; };
 		6378B4E52B0CD6E500D69035 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E42B0CD6E500D69035 /* Constant.swift */; };
-		6378B4E72B0CD7AD00D69035 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E62B0CD7AD00D69035 /* GuideView.swift */; };
 		6378B4E92B0CE63B00D69035 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4E82B0CE63B00D69035 /* CGFloat+.swift */; };
 		6378B4ED2B11DC9200D69035 /* GuideImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378B4EC2B11DC9200D69035 /* GuideImageData.swift */; };
 		63BB09C82AC0637D002CCE4E /* ClothingBinSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB09C72AC0637D002CCE4E /* ClothingBinSearchApp.swift */; };
@@ -76,12 +76,12 @@
 		63486CFD2B542C2F00CBAC59 /* Seoul_Gwangjin.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Gwangjin.csv; sourceTree = "<group>"; };
 		63486CFF2B542E9000CBAC59 /* Seoul_Geumcheon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Geumcheon.csv; sourceTree = "<group>"; };
 		63486D012B542FD500CBAC59 /* Seoul_Dongdaemun.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Dongdaemun.csv; sourceTree = "<group>"; };
+		63486D842B64B74700CBAC59 /* BuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuideView.swift; sourceTree = "<group>"; };
 		635A1A892B3F209200FF66B1 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckView.swift; sourceTree = "<group>"; };
 		635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNoClothingBinView.swift; sourceTree = "<group>"; };
 		635C686C2B271854001EB126 /* ReportBinRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBinRadioButton.swift; sourceTree = "<group>"; };
 		6378B4E42B0CD6E500D69035 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		6378B4E62B0CD7AD00D69035 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		6378B4E82B0CE63B00D69035 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
 		6378B4EC2B11DC9200D69035 /* GuideImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideImageData.swift; sourceTree = "<group>"; };
 		63BB09C42AC0637D002CCE4E /* ClothingBinSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothingBinSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +146,14 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
+		63486D812B64B0A400CBAC59 /* GuideView */ = {
+			isa = PBXGroup;
+			children = (
+				63486D842B64B74700CBAC59 /* BuideView.swift */,
+			);
+			path = GuideView;
+			sourceTree = "<group>";
+		};
 		63BB09BB2AC0637D002CCE4E = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +205,7 @@
 		63BB09D52AC06389002CCE4E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63486D812B64B0A400CBAC59 /* GuideView */,
 				63C26D582B4A9BC8007332C4 /* Map */,
 				63C26D572B4A9B90007332C4 /* Report */,
 				63CD49052AC7ECA200C782EF /* ZoomLevelGuideView.swift */,
@@ -204,7 +213,6 @@
 				63486CF12B4EB3E600CBAC59 /* RegionSelectionView_re.swift */,
 				63C7EB6E2AD430160002080D /* BinDetailView.swift */,
 				63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */,
-				6378B4E62B0CD7AD00D69035 /* GuideView.swift */,
 				635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */,
 				635C686C2B271854001EB126 /* ReportBinRadioButton.swift */,
 			);
@@ -463,6 +471,7 @@
 			files = (
 				63486CF22B4EB3E600CBAC59 /* RegionSelectionView_re.swift in Sources */,
 				63BB0A042AC33E0F002CCE4E /* Region.swift in Sources */,
+				63486D852B64B74700CBAC59 /* BuideView.swift in Sources */,
 				63BB09E62AC07B18002CCE4E /* ClothingBInStore.swift in Sources */,
 				6378B4ED2B11DC9200D69035 /* GuideImageData.swift in Sources */,
 				63BB09E82AC07FFB002CCE4E /* ButtonType.swift in Sources */,
@@ -480,7 +489,6 @@
 				63BB09E22AC077E7002CCE4E /* NaverMap.swift in Sources */,
 				63FE1BA82AD78B6F00369392 /* MarkerEmptyGuideView.swift in Sources */,
 				63BB09E02AC077D4002CCE4E /* MapView.swift in Sources */,
-				6378B4E72B0CD7AD00D69035 /* GuideView.swift in Sources */,
 				630A3C382B13769D00BDE978 /* Modifiers.swift in Sources */,
 				63BF3DC42AF92BC600802778 /* AnalyticsStore.swift in Sources */,
 				630A3C3A2B13773E00BDE978 /* Color+.swift in Sources */,
