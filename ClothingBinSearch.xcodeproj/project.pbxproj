@@ -18,7 +18,8 @@
 		63486CFE2B542C2F00CBAC59 /* Seoul_Gwangjin.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CFD2B542C2F00CBAC59 /* Seoul_Gwangjin.csv */; };
 		63486D002B542E9000CBAC59 /* Seoul_Geumcheon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486CFF2B542E9000CBAC59 /* Seoul_Geumcheon.csv */; };
 		63486D022B542FD500CBAC59 /* Seoul_Dongdaemun.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63486D012B542FD500CBAC59 /* Seoul_Dongdaemun.csv */; };
-		63486D852B64B74700CBAC59 /* BuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63486D842B64B74700CBAC59 /* BuideView.swift */; };
+		63486D852B64B74700CBAC59 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63486D842B64B74700CBAC59 /* GuideView.swift */; };
+		63486DA32B6916DD00CBAC59 /* AdvertisementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63486DA22B6916DD00CBAC59 /* AdvertisementView.swift */; };
 		635A1A8A2B3F209200FF66B1 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A892B3F209200FF66B1 /* ReportView.swift */; };
 		635A1A8C2B3FC31200FF66B1 /* ReportCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */; };
 		635C68692B2422C2001EB126 /* ReportNoClothingBinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */; };
@@ -76,7 +77,8 @@
 		63486CFD2B542C2F00CBAC59 /* Seoul_Gwangjin.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Gwangjin.csv; sourceTree = "<group>"; };
 		63486CFF2B542E9000CBAC59 /* Seoul_Geumcheon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Geumcheon.csv; sourceTree = "<group>"; };
 		63486D012B542FD500CBAC59 /* Seoul_Dongdaemun.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Seoul_Dongdaemun.csv; sourceTree = "<group>"; };
-		63486D842B64B74700CBAC59 /* BuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuideView.swift; sourceTree = "<group>"; };
+		63486D842B64B74700CBAC59 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		63486DA22B6916DD00CBAC59 /* AdvertisementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementView.swift; sourceTree = "<group>"; };
 		635A1A892B3F209200FF66B1 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		635A1A8B2B3FC31200FF66B1 /* ReportCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckView.swift; sourceTree = "<group>"; };
 		635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportNoClothingBinView.swift; sourceTree = "<group>"; };
@@ -149,7 +151,7 @@
 		63486D812B64B0A400CBAC59 /* GuideView */ = {
 			isa = PBXGroup;
 			children = (
-				63486D842B64B74700CBAC59 /* BuideView.swift */,
+				63486D842B64B74700CBAC59 /* GuideView.swift */,
 			);
 			path = GuideView;
 			sourceTree = "<group>";
@@ -215,6 +217,7 @@
 				63FE1BA72AD78B6F00369392 /* MarkerEmptyGuideView.swift */,
 				635C68682B2422C2001EB126 /* ReportNoClothingBinView.swift */,
 				635C686C2B271854001EB126 /* ReportBinRadioButton.swift */,
+				63486DA22B6916DD00CBAC59 /* AdvertisementView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -471,12 +474,13 @@
 			files = (
 				63486CF22B4EB3E600CBAC59 /* RegionSelectionView_re.swift in Sources */,
 				63BB0A042AC33E0F002CCE4E /* Region.swift in Sources */,
-				63486D852B64B74700CBAC59 /* BuideView.swift in Sources */,
+				63486D852B64B74700CBAC59 /* GuideView.swift in Sources */,
 				63BB09E62AC07B18002CCE4E /* ClothingBInStore.swift in Sources */,
 				6378B4ED2B11DC9200D69035 /* GuideImageData.swift in Sources */,
 				63BB09E82AC07FFB002CCE4E /* ButtonType.swift in Sources */,
 				6378B4E52B0CD6E500D69035 /* Constant.swift in Sources */,
 				635A1A8C2B3FC31200FF66B1 /* ReportCheckView.swift in Sources */,
+				63486DA32B6916DD00CBAC59 /* AdvertisementView.swift in Sources */,
 				6378B4E92B0CE63B00D69035 /* CGFloat+.swift in Sources */,
 				63C26D562B497E8C007332C4 /* ReportBinData.swift in Sources */,
 				635A1A8A2B3F209200FF66B1 /* ReportView.swift in Sources */,
@@ -629,18 +633,21 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ClothingBinSearch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "의류수거함 검색";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "내 위치 근처의 의류수거함을 불러오기 위해 현재 위치 권한설정이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = sumsum.daummap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -665,18 +672,21 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ClothingBinSearch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "의류수거함 검색";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "내 위치 근처의 의류수거함을 불러오기 위해 현재 위치 권한설정이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = sumsum.daummap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

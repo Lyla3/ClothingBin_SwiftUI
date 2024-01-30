@@ -21,10 +21,10 @@ struct MapView: View {
     var body: some View {
         
         ZStack(alignment:.topTrailing) {
-            
             NaverMap().ignoresSafeArea()
-            
-            
+            //MARK: -AdvertisementView
+//            AdvertisementView()
+//                .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height
             HStack{
                 Button {
                     Coordinator.shared.clothingBinStore.handleButtonTap(buttonType: .currentLocation)
@@ -44,7 +44,9 @@ struct MapView: View {
             }
             Button {
                 // GuideView 띄우기
-                isShowingGuideView = true
+                withAnimation {
+                       isShowingGuideView = true
+                   }
             } label: {
                 Image(systemName: "questionmark")
                     .resizable()
