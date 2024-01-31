@@ -22,7 +22,6 @@ struct ReportView: View {
                     HStack{
                         Spacer()
                         Button(action: {
-                            print("ReportView Xmark Button pressed.")
                             print("selectedBinData.isShowingReportView:\(reportBinData.isShowingReportView)")
                             presentationMode.wrappedValue.dismiss()
                         }) {
