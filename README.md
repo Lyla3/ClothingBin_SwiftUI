@@ -3,6 +3,9 @@
 - [앱 스토어 링크]
 
 [앱 스토어 링크]: https://apps.apple.com/kr/app/%EC%9D%98%EB%A5%98%EC%88%98%EA%B1%B0%ED%95%A8-%EA%B2%80%EC%83%89/id6448051482?l=en-GB
+*현재는 앱 스토어 대신 Web([링크](https://lyla3.github.io/clothingBinWeb/))으로 서비스 중입니다.
+
+
 
 - 기술 스택 
   - UIKit -> SwiftUI로 리팩토링 완료
