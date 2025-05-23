@@ -24,4 +24,5 @@
 
    
 ## 기능 흐름도
-![흐름도_230909](https://github.com/Lyla3/RecyclingClothing/assets/125568161/fed0a31e-4ff6-48b3-92cf-feea002eea21)
+![image](https://github.com/user-attachments/assets/65f642dd-b6ea-4d7e-a8f0-e74007e1e538)
+
